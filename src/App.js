@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import MaterialTable from 'material-table';
+import mutation_operators from './fields.js'
 
 
 class App extends React.Component {
@@ -32,16 +33,17 @@ class App extends React.Component {
     }
   }
 
-  createMutantTable(columns, rows) {
-    if (rows.length == 0) {
+  createMutantTable() {
+    if (this.state.mutants.length == 0) {
       return;
     }
-    const table_rows = rows.map(row => {
+    const table_rows = this.state.mutants.map(mutant => {
       return {
-        mutant_name: row.mutant_name,
-        killed: String(row.killed),
-        equivalent: String(row.equivalent),
-        productive: String(row.productive)
+        mutant_name: mutant.mutant_name,
+        mutation_operator: mutation_operators[mutant.mutation_operator].full_name,
+        killed: String(mutant.killed),
+        equivalent: String(mutant.equivalent),
+        productive: String(mutant.productive)
       }
     });
     return (
@@ -49,6 +51,7 @@ class App extends React.Component {
         <MaterialTable
           columns={[
             { title: 'Mutant Name', field: 'mutant_name' },
+            { title: 'Mutation Operator', field: 'mutation_operator' },
             { title: 'Killed', field: 'killed' },
             { title: 'Equivalent', field: 'equivalent' },
             { title: 'Productive', field: 'productive' }
@@ -61,12 +64,6 @@ class App extends React.Component {
   }
 
   render() {
-    const columns = [
-      { field: 'mutant_name', title: 'Mutant Name' },
-      { field: 'killed', title: 'Killed' },
-      { field: 'equivalent', title: 'Equivalent' },
-      { field: 'productive', title: 'Productive' } ];
-
     return (
       <div className="App">
       <h1>Mutation Testing Visualization Tool</h1>
@@ -75,7 +72,7 @@ class App extends React.Component {
           <button>Upload</button>
         </form>
         <br></br>
-        <div>{this.createMutantTable(columns, this.state.mutants)}</div>
+        <div>{this.createMutantTable()}</div>
       </div>
     );
   }
