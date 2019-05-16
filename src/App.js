@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
+import ReactDataGrid from 'react-data-grid';
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mutants : null
+      mutants : []
     };
 
     this.handleUpload = this.handleUpload.bind(this);
@@ -30,16 +32,41 @@ class App extends React.Component {
     }
   }
 
+  createMutantTable(columns, rows) {
+    if (rows.length == 0) {
+      return;
+    }
+    const table_rows = rows.map(row => {
+      return {
+        mutant_name: row.mutant_name,
+        killed: String(row.killed),
+        equivalent: String(row.equivalent),
+        productive: String(row.productive)
+      }
+    });
+    return (<ReactDataGrid
+      columns={columns}
+      rowGetter={i => table_rows[i]}
+      rowsCount={rows.length}
+    />);
+  }
+
   render() {
+    const columns = [
+      { key: 'mutant_name', name: 'Mutant Name' },
+      { key: 'killed', name: 'Killed' },
+      { key: 'equivalent', name: 'Equivalent' },
+      { key: 'productive', name: 'Productive' } ];
+
     return (
       <div className="App">
-        <p>Before mutants</p>
-        {/* <p>{ this.state.mutants }</p> */}
-        <p>After mutants</p>
+      <h1>Mutation Testing Visualization Tool</h1>
         <form onSubmit={ this.handleUpload }>
           <input ref={(ref) => { this.fileinput = ref; }} type="file" />
           <button>Upload</button>
         </form>
+        <br></br>
+        <div>{this.createMutantTable(columns, this.state.mutants)}</div>
       </div>
     );
   }
