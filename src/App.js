@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import ReactDataGrid from 'react-data-grid';
+import MaterialTable from 'material-table';
 
 
 class App extends React.Component {
@@ -44,19 +44,28 @@ class App extends React.Component {
         productive: String(row.productive)
       }
     });
-    return (<ReactDataGrid
-      columns={columns}
-      rowGetter={i => table_rows[i]}
-      rowsCount={rows.length}
-    />);
+    return (
+      <div style={{ maxWidth: '100%' }}>
+        <MaterialTable
+          columns={[
+            { title: 'Mutant Name', field: 'mutant_name' },
+            { title: 'Killed', field: 'killed' },
+            { title: 'Equivalent', field: 'equivalent' },
+            { title: 'Productive', field: 'productive' }
+          ]}
+          data={table_rows}
+          title="Mutants Found"
+        />
+      </div>
+    )
   }
 
   render() {
     const columns = [
-      { key: 'mutant_name', name: 'Mutant Name' },
-      { key: 'killed', name: 'Killed' },
-      { key: 'equivalent', name: 'Equivalent' },
-      { key: 'productive', name: 'Productive' } ];
+      { field: 'mutant_name', title: 'Mutant Name' },
+      { field: 'killed', title: 'Killed' },
+      { field: 'equivalent', title: 'Equivalent' },
+      { field: 'productive', title: 'Productive' } ];
 
     return (
       <div className="App">
