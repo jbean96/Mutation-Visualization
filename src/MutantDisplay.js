@@ -4,6 +4,7 @@ import KeyboardBackspace from '@material-ui/icons/KeyboardBackspace';
 import mutation_operators from './fields.js';
 import MaterialTable from 'material-table';
 
+/* Functional component to display high level data about all of the mutants */
 function MutantTable(props) {
     if (props.mutants.length == 0) return null;
 
@@ -21,7 +22,7 @@ function MutantTable(props) {
         <div style={{ maxWidth: '100%' }}>
             <MaterialTable
                 actions={[
-                    { icon: 'forward', onClick: props.mutantClickHandler, tooltip: 'View code' }
+                    { icon: 'zoom_in', onClick: props.mutantClickHandler, tooltip: 'View code' }
                 ]}
                 columns={[
                     { title: 'Mutant Name', field: 'mutant_name' },
@@ -37,14 +38,23 @@ function MutantTable(props) {
     );
 };
 
+/* Functional component that displays details about an individual mutant */
 function MutantCode(props) {
     return (
         <div style={{ maxWidth: '100%' }}>
             <KeyboardBackspace onClick={props.return}/>
+            <br/>
+            <h3>Mutant Code</h3>
+            <code>{props.mutant.mutated_output}</code>
+            <h3>Original Code</h3>
+            <code>{props.mutant.unmutated_output}</code>
         </div>
     )
 }
 
+/* Component that handles the displaying of mutants and the logic to navigate
+ * around the mutant interface
+ */
 class MutantDisplay extends React.Component {
     constructor(props) {
         super(props);
@@ -53,7 +63,7 @@ class MutantDisplay extends React.Component {
         };
     }
 
-    return() {
+    returnToTable() {
         this.setState({ currentMutant : null });
     }
 
@@ -66,7 +76,8 @@ class MutantDisplay extends React.Component {
     render() {
         if (this.state.currentMutant !== null) {
             return (
-                <MutantCode return={this.return.bind(this)}/>
+                <MutantCode return={this.returnToTable.bind(this)} 
+                    mutant={this.props.mutants[this.state.currentMutant]}/>
             );
         } else {
             return (
