@@ -15,6 +15,10 @@
     width : 49.5%;
 }
 
+.mutation {
+    background-color : #89ff9d;
+}
+
 #clear {
     clear : both;
 }
