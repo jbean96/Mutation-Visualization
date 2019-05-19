@@ -1,8 +1,11 @@
 import React from 'react';
 import './App.css';
+import './MutantDisplay.css';
 import KeyboardBackspace from '@material-ui/icons/KeyboardBackspace';
 import mutation_operators from './fields.js';
 import MaterialTable from 'material-table';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 /* Functional component to display high level data about all of the mutants */
 function MutantTable(props) {
@@ -39,17 +42,37 @@ function MutantTable(props) {
 };
 
 /* Functional component that displays details about an individual mutant */
-function MutantCode(props) {
-    return (
-        <div style={{ maxWidth: '100%' }}>
-            <KeyboardBackspace onClick={props.return}/>
-            <br/>
-            <h3>Mutant Code</h3>
-            <code>{props.mutant.mutated_output}</code>
-            <h3>Original Code</h3>
-            <code>{props.mutant.unmutated_output}</code>
-        </div>
-    )
+class MutantCode extends React.Component {
+    makeCodePanel(code) {
+        console.log(code);
+        return (
+            <SyntaxHighlighter showLineNumbers
+                language='python'
+                style={docco}
+                wrapLines='true'>{code}</SyntaxHighlighter>
+        );
+    }
+
+    render() {
+        return (
+            <div style={{ maxWidth: '100%' }}>
+                <script>hljs.initHighlightingOnLoad();</script>
+                <KeyboardBackspace onClick={this.props.return}/>
+                <br/>
+                <div id="container">
+                    <div class="panel" id="panel1">
+                        <h3>Mutant Code</h3>
+                        {this.makeCodePanel(this.props.mutant.unmutated_output)}
+                    </div>
+                    <div class="panel" id="panel2">
+                        <h3>Original Code</h3>
+                        {this.makeCodePanel(this.props.mutant.unmutated_output)}
+                    </div>
+                    <div id="clear"></div>
+                </div>
+            </div>
+        );
+    }
 }
 
 /* Component that handles the displaying of mutants and the logic to navigate

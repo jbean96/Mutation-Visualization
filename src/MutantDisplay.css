@@ -1,0 +1,20 @@
+#container {
+    width : 80%;
+    margin: auto;
+}
+
+#panel1 {
+    float : left;
+}
+
+#panel2 {
+    float : right;
+}
+
+.panel {
+    width : 49.5%;
+}
+
+#clear {
+    clear : both;
+}

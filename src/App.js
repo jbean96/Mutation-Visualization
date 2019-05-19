@@ -63,39 +63,6 @@ class App extends React.Component {
     }
   }
 
-  // createMutantTable() {
-  //   if (this.state.mutants.length == 0) {
-  //     return;
-  //   }
-  //   const table_rows = this.state.mutants.map(mutant => {
-  //     return {
-  //       mutant_name: mutant.mutant_name,
-  //       mutation_operator: mutation_operators[mutant.mutation_operator].full_name,
-  //       killed: String(mutant.killed),
-  //       equivalent: String(mutant.equivalent),
-  //       productive: String(mutant.productive)
-  //     }
-  //   });
-  //   return (
-  //     <div style={{ maxWidth: '100%' }}>
-  //       <MaterialTable
-  //         actions={[
-  //           { icon: 'forward', onClick: this.mutantClickHandler.bind(this), tooltip: 'View code' }
-  //         ]}
-  //         columns={[
-  //           { title: 'Mutant Name', field: 'mutant_name' },
-  //           { title: 'Mutation Operator', field: 'mutation_operator' },
-  //           { title: 'Killed', field: 'killed' },
-  //           { title: 'Equivalent', field: 'equivalent' },
-  //           { title: 'Productive', field: 'productive' }
-  //         ]}
-  //         data={table_rows}
-  //         title='Mutants Found'
-  //       />
-  //     </div>
-  //   )
-  // }
-
   createErrorMessage() {
     if (this.state.error) {
       return <ErrorMessage message={this.state.error.toString()}
