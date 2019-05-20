@@ -6,6 +6,12 @@ import mutation_operators from './fields.js';
 import MaterialTable from 'material-table';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import FormLabel from '@material-ui/core/FormLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import Switch from '@material-ui/core/Switch';
 
 /* Functional component to display high level data about all of the mutants */
 function MutantTable(props) {
@@ -41,6 +47,50 @@ function MutantTable(props) {
     );
 };
 
+class SwitchesGroup extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            productive: this.props.productive,
+            equivalent: this.props.equivalent,
+        };
+    }
+
+    handleChange = name => event => {
+      this.setState({ [name]: event.target.checked });
+    };
+
+    render() {
+      return (
+        <FormControl component="fieldset">
+        <FormLabel component="legend">Mutant Properties</FormLabel>
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={this.state.productive}
+                  onChange={this.handleChange('productive')}
+                  value="productive"
+                />
+              }
+              label="Productive"
+            />
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={this.state.equivalent}
+                  onChange={this.handleChange('equivalent')}
+                  value="equivalent"
+                />
+              }
+              label="Equivalent"
+            />
+          </FormGroup>
+        </FormControl>
+      );
+    }
+  }
+
 /* Functional component that displays details about an individual mutant */
 class MutantCode extends React.Component {
     makeCodePanel(code, lines) {
@@ -62,16 +112,14 @@ class MutantCode extends React.Component {
         return (
             <div style={{ maxWidth: '100%' }}>
                 <script>hljs.initHighlightingOnLoad();</script>
-                <KeyboardBackspace onClick={this.props.return}/>
-                <br/>
                 <div id="container">
                     <div class="panel" id="panel1">
-                        <h3>Mutant Code</h3>
+                        <h3>Original Code</h3>
                         {this.makeCodePanel(this.props.mutant.unmutated_output, [1])}
                     </div>
                     <div class="panel" id="panel2">
-                        <h3>Original Code</h3>
-                        {this.makeCodePanel(this.props.mutant.unmutated_output, [2])}
+                        <h3>Mutant Code</h3>
+                        {this.makeCodePanel(this.props.mutant.mutated_output, [1])}
                     </div>
                     <div id="clear"></div>
                 </div>
@@ -101,11 +149,21 @@ class MutantDisplay extends React.Component {
         console.log(this.state);
     }
 
+    updateMutantHandler(event, mutant) {}
+
     render() {
         if (this.state.currentMutant !== null) {
+            const mutant_obj = this.props.mutants[this.state.currentMutant];
             return (
-                <MutantCode return={this.returnToTable.bind(this)} 
-                    mutant={this.props.mutants[this.state.currentMutant]}/>
+                <div>
+                    <KeyboardBackspace onClick={this.returnToTable.bind(this)}/>
+                    <br/>
+                    <br/>
+                    <SwitchesGroup
+                        productive={mutant_obj.productive}
+                        equivalent={mutant_obj.equivalent} />
+                    <MutantCode mutant={mutant_obj}/>
+                </div>
             );
         } else {
             return (
