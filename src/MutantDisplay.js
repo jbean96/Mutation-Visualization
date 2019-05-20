@@ -51,13 +51,17 @@ class SwitchesGroup extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            productive: this.props.productive,
-            equivalent: this.props.equivalent,
+            productive: this.props.mutant.productive,
+            equivalent: this.props.mutant.equivalent,
         };
     }
 
     handleChange = name => event => {
       this.setState({ [name]: event.target.checked });
+      let newMutant = JSON.parse(JSON.stringify(this.props.mutant));
+      newMutant[name] = event.target.checked;
+      this.props.updateSwitchHandler(newMutant);
+
     };
 
     render() {
@@ -149,7 +153,9 @@ class MutantDisplay extends React.Component {
         console.log(this.state);
     }
 
-    updateMutantHandler(event, mutant) {}
+    updateMutantHandler(mutant) {
+        this.props.updateMutantHandler(this.state.currentMutant, mutant);
+    }
 
     render() {
         if (this.state.currentMutant !== null) {
@@ -159,9 +165,8 @@ class MutantDisplay extends React.Component {
                     <KeyboardBackspace onClick={this.returnToTable.bind(this)}/>
                     <br/>
                     <br/>
-                    <SwitchesGroup
-                        productive={mutant_obj.productive}
-                        equivalent={mutant_obj.equivalent} />
+                    <SwitchesGroup mutant={mutant_obj}
+                        updateSwitchHandler={this.updateMutantHandler.bind(this)}/>
                     <MutantCode mutant={mutant_obj}/>
                 </div>
             );

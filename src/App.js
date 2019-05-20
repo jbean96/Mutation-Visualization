@@ -70,6 +70,12 @@ class App extends React.Component {
     }
   }
 
+  updateMutantHandler(index, mutant) {
+    let newMutants = JSON.parse(JSON.stringify(this.state.mutants));
+    newMutants[index] = mutant;
+    this.setState({ mutants: newMutants });
+  }
+
   render() {
     return (
       <div className='App'>
@@ -79,7 +85,7 @@ class App extends React.Component {
           <button>Upload</button>
         </form>
         <br></br>
-        <MutantDisplay mutants={ this.state.mutants } />
+        <MutantDisplay mutants={ this.state.mutants } updateMutantHandler={this.updateMutantHandler.bind(this)} />
         {this.createErrorMessage()}
       </div>
     );
