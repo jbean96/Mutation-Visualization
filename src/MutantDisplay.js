@@ -5,6 +5,7 @@ import KeyboardBackspace from '@material-ui/icons/KeyboardBackspace';
 import MutantTable from './MutantTable';
 import MutantCode from './MutantCode';
 import SwitchesGroup from './SwitchesGroup';
+import MutantKillers from './MutantKillers';
 
 
 /* Component that handles the displaying of mutants and the logic to navigate
@@ -44,6 +45,7 @@ class MutantDisplay extends React.Component {
                     <SwitchesGroup mutant={mutant_obj}
                         updateSwitchHandler={this.updateMutantHandler.bind(this)}/>
                     <MutantCode mutant={mutant_obj}/>
+                    <MutantKillers killers = {mutant_obj.killers} />
                 </div>
             );
         } else {
