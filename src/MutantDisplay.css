@@ -26,3 +26,12 @@
 .MuiSvgIcon-root-168 {
     cursor: pointer;
 }
+
+.mutantName {
+    color: blue;
+    cursor: pointer;
+}
+
+.mutantName:hover {
+    text-decoration: underline;
+}

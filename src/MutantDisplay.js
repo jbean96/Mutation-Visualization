@@ -23,10 +23,8 @@ class MutantDisplay extends React.Component {
         this.setState({ currentMutant : null });
     }
 
-    mutantClickHandler(event, row) {
-        console.log(row);
-        this.setState({ currentMutant : row.tableData.id });
-        console.log(this.state);
+    mutantClickHandler(row) {
+        this.setState({ currentMutant : row});
     }
 
     updateMutantHandler(mutant) {

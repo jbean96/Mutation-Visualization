@@ -8,9 +8,10 @@ import MaterialTable from 'material-table';
 function MutantTable(props) {
     if (props.mutants.length == 0) return null;
 
-    const tableRows = props.mutants.map(mutant => {
+    const tableRows = props.mutants.map((mutant, index) => {
+
         return {
-            mutant_name: mutant.mutant_name,
+            mutant_name: <span class="mutantName" onClick={() => props.mutantClickHandler(index)}>{mutant.mutant_name}</span>,
             mutation_operator: mutation_operators[mutant.mutation_operator].full_name,
             killed: String(mutant.killed),
             equivalent: String(mutant.equivalent),
@@ -21,9 +22,6 @@ function MutantTable(props) {
     return (
         <div style={{ maxWidth: '100%' }}>
             <MaterialTable
-                actions={[
-                    { icon: 'zoom_in', onClick: props.mutantClickHandler, tooltip: 'View code' }
-                ]}
                 columns={[
                     { title: 'Mutant Name', field: 'mutant_name' },
                     { title: 'Mutation Operator', field: 'mutation_operator' },
