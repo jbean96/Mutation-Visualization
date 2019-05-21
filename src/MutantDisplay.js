@@ -6,7 +6,7 @@ import MutantTable from './MutantTable';
 import MutantCode from './MutantCode';
 import SwitchesGroup from './SwitchesGroup';
 import MutantKillers from './MutantKillers';
-
+import Download from '@axetroy/react-download';
 
 /* Component that handles the displaying of mutants and the logic to navigate
  * around the mutant interface
@@ -45,11 +45,23 @@ class MutantDisplay extends React.Component {
                     <MutantKillers killers = {mutant_obj.killers} />
                 </div>
             );
-        } else {
+        } else if (this.props.mutants.length > 0) {
             return (
-                <MutantTable mutants={this.props.mutants}
-                    mutantClickHandler={this.mutantClickHandler.bind(this)} />
+                <div>
+                    <br/><div style={{"text-align": "center"}}>
+                        <button>
+                            <Download file="mutation_data.json" 
+                                content={JSON.stringify(this.state.mutants)}>
+                                Save Mutation Data
+                            </Download>
+                        </button>
+                    </div><br/>
+                    <MutantTable mutants={this.props.mutants}
+                        mutantClickHandler={this.mutantClickHandler.bind(this)} />
+                </div>
             );
+        } else {
+            return null;
         }
     };
 }
