@@ -1,6 +1,7 @@
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons');
 .App {
-  text-align: center;
+  width: 900px;
+  margin: 0 auto;
 }
 
 .App-logo {
@@ -18,10 +19,15 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  text-align: center;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+#site-header {
+  text-align: center;
 }
 
 @keyframes App-logo-spin {
