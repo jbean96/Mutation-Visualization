@@ -79,11 +79,13 @@ class App extends React.Component {
   render() {
     return (
       <div className='App'>
+        <div id="site-header">
         <h1>Mutation Testing Visualization Tool</h1>
-        <form onSubmit={this.handleUpload}>
-          <input ref={(ref) => { this.fileInput = ref; }} type='file' />
-          <button>Upload</button>
-        </form>
+          <form onSubmit={this.handleUpload}>
+            <input ref={(ref) => { this.fileInput = ref; }} type='file' />
+            <button>Upload</button>
+          </form>
+        </div>
         <br></br>
         <MutantDisplay mutants={ this.state.mutants } updateMutantHandler={this.updateMutantHandler.bind(this)} />
         {this.createErrorMessage()}

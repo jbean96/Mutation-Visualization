@@ -41,10 +41,9 @@ class MutantDisplay extends React.Component {
                     <KeyboardBackspace onClick={this.returnToTable.bind(this)}/>
                     <br/>
                     <h3>{mutant_obj.mutant_name}</h3>
-                    <br/>
+                    <MutantCode mutant={mutant_obj}/>
                     <SwitchesGroup mutant={mutant_obj}
                         updateSwitchHandler={this.updateMutantHandler.bind(this)}/>
-                    <MutantCode mutant={mutant_obj}/>
                     <MutantKillers killers = {mutant_obj.killers} />
                 </div>
             );

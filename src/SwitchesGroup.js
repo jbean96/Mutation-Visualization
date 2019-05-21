@@ -27,18 +27,8 @@ class SwitchesGroup extends React.Component {
   render() {
     return (
       <FormControl component="fieldset">
-      <FormLabel component="legend">Mutant Properties</FormLabel>
+      <FormLabel component="legend">This mutant is:</FormLabel>
         <FormGroup>
-          <FormControlLabel
-            control={
-              <Switch
-                checked={this.state.productive}
-                onChange={this.handleChange('productive')}
-                value="productive"
-              />
-            }
-            label="Productive"
-          />
           <FormControlLabel
             control={
               <Switch
@@ -48,6 +38,16 @@ class SwitchesGroup extends React.Component {
               />
             }
             label="Equivalent"
+          />
+          <FormControlLabel
+            control={
+              <Switch
+                checked={this.state.productive}
+                onChange={this.handleChange('productive')}
+                value="productive"
+              />
+            }
+            label="Productive"
           />
         </FormGroup>
       </FormControl>
