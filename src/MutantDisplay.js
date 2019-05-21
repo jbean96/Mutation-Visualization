@@ -51,7 +51,7 @@ class MutantDisplay extends React.Component {
                     <br/><div style={{"text-align": "center"}}>
                         <button>
                             <Download file="mutation_data.json" 
-                                content={JSON.stringify(this.state.mutants)}>
+                                content={JSON.stringify(this.props.mutants)}>
                                 Save Mutation Data
                             </Download>
                         </button>
