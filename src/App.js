@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Clear from '@material-ui/icons/Clear';
 import MutantDisplay from './MutantDisplay.js';
+import Download from '@axetroy/react-download';
 
 function ErrorMessage(props) {
   //return <div>{ props.message } <button onClick={ props.clearError }>Close</button></div>
@@ -76,6 +77,19 @@ class App extends React.Component {
     this.setState({ mutants: newMutants });
   }
 
+  mutationButton() {
+    if (this.state.mutants.length == 0) {
+      return null;
+    }
+    return (
+      <button>
+        <Download file={this.fileInput.files[0].name} content={JSON.stringify(this.state.mutants)}>
+          Save Mutation Data
+        </Download>
+      </button>
+    );
+  }
+
   render() {
     return (
       <div className='App'>
@@ -85,8 +99,10 @@ class App extends React.Component {
             <input ref={(ref) => { this.fileInput = ref; }} type='file' />
             <button>Upload</button>
           </form>
+          <br></br>
+            <div>{this.mutationButton()}</div>
+          <br></br>
         </div>
-        <br></br>
         <MutantDisplay mutants={ this.state.mutants } updateMutantHandler={this.updateMutantHandler.bind(this)} />
         {this.createErrorMessage()}
       </div>
