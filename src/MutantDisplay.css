@@ -1,0 +1,28 @@
+#container {
+    width : 80%;
+    margin: auto;
+}
+
+#panel1 {
+    float : left;
+}
+
+#panel2 {
+    float : right;
+}
+
+.panel {
+    width : 49.5%;
+}
+
+.mutation {
+    background-color : #89ff9d;
+}
+
+#clear {
+    clear : both;
+}
+
+.MuiSvgIcon-root-168 {
+    cursor: pointer;
+}
