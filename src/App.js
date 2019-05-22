@@ -2,11 +2,11 @@ import React from 'react';
 import './App.css';
 import Clear from '@material-ui/icons/Clear';
 import MutantDisplay from './MutantDisplay.js';
+import Info from './Info.js';
 
 function ErrorMessage(props) {
-  //return <div>{ props.message } <button onClick={ props.clearError }>Close</button></div>
   return (
-    <div><Clear onClick={props.clearError} /> {props.message}</div>
+    <div id="error"><Clear onClick={props.clearError} /> {props.message}</div>
   );
 }
 
@@ -50,6 +50,7 @@ class App extends React.Component {
       this.logError('Uploaded array is empty');
     } else {
       this.setState({ mutants: content });
+      this.clearError();
     }
   }
 
@@ -65,8 +66,12 @@ class App extends React.Component {
 
   createErrorMessage() {
     if (this.state.error) {
-      return <ErrorMessage message={this.state.error.toString()}
-        clearError={this.clearError.bind(this)} />;
+      return (
+        <div>
+          <ErrorMessage message={this.state.error.toString()}
+        clearError={this.clearError.bind(this)} />
+        </div>
+      );
     }
   }
 
@@ -74,6 +79,18 @@ class App extends React.Component {
     let newMutants = JSON.parse(JSON.stringify(this.state.mutants));
     newMutants[index] = mutant;
     this.setState({ mutants: newMutants });
+  }
+
+  renderBody() {
+    if (this.state.mutants.length > 0) {
+      return (
+        <MutantDisplay mutants={this.state.mutants} updateMutantHandler={this.updateMutantHandler.bind(this)} />
+      );
+    } else {
+      return (
+        <Info />
+      );
+    }
   }
 
   render() {
@@ -86,8 +103,9 @@ class App extends React.Component {
             <button>Upload</button>
           </form>
         </div>
-        <MutantDisplay mutants={this.state.mutants} updateMutantHandler={this.updateMutantHandler.bind(this)} />
+        <br/>
         {this.createErrorMessage()}
+        {this.renderBody()}
       </div>
     );
   }
