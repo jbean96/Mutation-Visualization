@@ -52,6 +52,8 @@ class App extends React.Component {
     } else if (content.length === 0) {
       this.logError('Uploaded array is empty');
     } else {
+      this.setState({ disableInputButton: true});
+      this.refs.uploadButton.innerHTML = 'Refresh'
       this.setState({ mutants: content });
     }
   }
@@ -62,8 +64,7 @@ class App extends React.Component {
     if (this.refs.uploadButton.innerHTML === 'Refresh') {
       window.location.reload()
     } else if (this.fileInput.files.length > 0) {
-      this.setState({ disableInputButton: true});
-      this.refs.uploadButton.innerHTML = 'Refresh'
+      this.clearError();
       this.fileReader.readAsText(this.fileInput.files[0]);
     } else {
       this.logError('No files selected');

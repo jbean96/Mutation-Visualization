@@ -6,7 +6,7 @@ import MaterialTable from 'material-table';
 
 /* Functional component to display high level data about all of the mutants */
 function MutantTable(props) {
-    if (props.mutants.length == 0) return null;
+    if (props.mutants.length === 0) return null;
 
     const tableRows = props.mutants.map((mutant, index) => {
 
