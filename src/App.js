@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Clear from '@material-ui/icons/Clear';
 import MutantDisplay from './MutantDisplay.js';
+import Info from './Info.js';
 
 function ErrorMessage(props) {
   //return <div>{ props.message } <button onClick={ props.clearError }>Close</button></div>
@@ -76,6 +77,18 @@ class App extends React.Component {
     this.setState({ mutants: newMutants });
   }
 
+  renderBody() {
+    if (this.state.mutants.length > 0) {
+      return (
+        <MutantDisplay mutants={this.state.mutants} updateMutantHandler={this.updateMutantHandler.bind(this)} />
+      );
+    } else {
+      return (
+        <Info fileName="./assets/json_format.txt" />
+      );
+    }
+  }
+
   render() {
     return (
       <div className='App'>
@@ -86,8 +99,8 @@ class App extends React.Component {
             <button>Upload</button>
           </form>
         </div>
-        <MutantDisplay mutants={this.state.mutants} updateMutantHandler={this.updateMutantHandler.bind(this)} />
         {this.createErrorMessage()}
+        {this.renderBody()}
       </div>
     );
   }

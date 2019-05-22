@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import './MutantDisplay.css';
-import mutation_operators from './fields.js';
+import mutation_operators from './assets/fields.js';
 import MaterialTable from 'material-table';
 
 /* Functional component to display high level data about all of the mutants */
