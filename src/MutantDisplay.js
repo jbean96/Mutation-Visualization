@@ -48,7 +48,7 @@ class MutantDisplay extends React.Component {
         } else if (this.props.mutants.length > 0) {
             return (
                 <div>
-                    <br/><div style={{"text-align": "center"}}>
+                    <div style={{"text-align": "center"}}>
                         <button>
                             <Download file="mutation_data.json" 
                                 content={JSON.stringify(this.props.mutants)}>
