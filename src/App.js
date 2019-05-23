@@ -46,7 +46,7 @@ class App extends React.Component {
 
     if (!Array.isArray(content)) {
       this.logError('Top level json object must be an array');
-    } else if (content.length == 0) {
+    } else if (content.length === 0) {
       this.logError('Uploaded array is empty');
     } else {
       this.setState({ mutants: content });
@@ -69,7 +69,7 @@ class App extends React.Component {
       return (
         <div>
           <ErrorMessage message={this.state.error.toString()}
-        clearError={this.clearError.bind(this)} />
+            clearError={this.clearError.bind(this)} />
         </div>
       );
     }
@@ -97,13 +97,13 @@ class App extends React.Component {
     return (
       <div className='App'>
         <div id="site-header">
-        <h1>Mutation Testing Visualization Tool</h1>
+          <h1>Mutation Testing Visualization Tool</h1>
           <form onSubmit={this.handleUpload}>
             <input ref={(ref) => { this.fileInput = ref; }} type='file' />
             <button>Upload</button>
           </form>
         </div>
-        <br/>
+        <br />
         {this.createErrorMessage()}
         {this.renderBody()}
       </div>

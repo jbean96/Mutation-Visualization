@@ -20,11 +20,11 @@ class MutantDisplay extends React.Component {
     }
 
     returnToTable() {
-        this.setState({ currentMutant : null });
+        this.setState({ currentMutant: null });
     }
 
     mutantClickHandler(row) {
-        this.setState({ currentMutant : row});
+        this.setState({ currentMutant: row });
     }
 
     updateMutantHandler(mutant) {
@@ -36,26 +36,26 @@ class MutantDisplay extends React.Component {
             const mutant_obj = this.props.mutants[this.state.currentMutant];
             return (
                 <div>
-                    <KeyboardBackspace onClick={this.returnToTable.bind(this)}/>
-                    <br/>
+                    <KeyboardBackspace onClick={this.returnToTable.bind(this)} />
+                    <br />
                     <h3>{mutant_obj.mutant_name}</h3>
-                    <MutantCode mutant={mutant_obj}/>
+                    <MutantCode mutant={mutant_obj} />
                     <SwitchesGroup mutant={mutant_obj}
-                        updateSwitchHandler={this.updateMutantHandler.bind(this)}/>
-                    <MutantKillers killers = {mutant_obj.killers} />
+                        updateSwitchHandler={this.updateMutantHandler.bind(this)} />
+                    <MutantKillers killers={mutant_obj.killers} />
                 </div>
             );
         } else if (this.props.mutants.length > 0) {
             return (
                 <div>
-                    <div style={{"text-align": "center"}}>
+                    <div style={{ "textAlign": "center" }}>
                         <button>
-                            <Download file="mutation_data.json" 
+                            <Download file="mutation_data.json"
                                 content={JSON.stringify(this.props.mutants)}>
                                 Save Mutation Data
                             </Download>
                         </button>
-                    </div><br/>
+                    </div><br />
                     <MutantTable mutants={this.props.mutants}
                         mutantClickHandler={this.mutantClickHandler.bind(this)} />
                 </div>

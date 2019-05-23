@@ -6,12 +6,12 @@ import MaterialTable from 'material-table';
 
 /* Functional component to display high level data about all of the mutants */
 function MutantTable(props) {
-    if (props.mutants.length == 0) return null;
+    if (props.mutants.length === 0) return null;
 
     const tableRows = props.mutants.map((mutant, index) => {
 
         return {
-            mutant_name: <span class="mutantName" onClick={() => props.mutantClickHandler(index)}>{mutant.mutant_name}</span>,
+            mutant_name: <span className="mutantName" onClick={() => props.mutantClickHandler(index)}>{mutant.mutant_name}</span>,
             mutation_operator: mutation_operators[mutant.mutation_operator].full_name,
             killed: String(mutant.killed),
             equivalent: String(mutant.equivalent),

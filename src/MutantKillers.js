@@ -3,14 +3,14 @@ import './App.css';
 import './MutantDisplay.css';
 
 function MutantKillers(props) {
-    if (props.killers.length == 0) return null;
+    if (props.killers.length === 0) return null;
 
-    const tableRows = props.killers.map(killer => {
+    const tableRows = props.killers.map(function (killer, i) {
         return (
-            <li>
-                <strong>{ killer[0] }</strong>
+            <li key={i}>
+                <strong>{killer[0]}</strong>
                 <ul>
-                    <li>{ killer[1] }</li>
+                    <li>{killer[1]}</li>
                 </ul>
             </li>
         );
