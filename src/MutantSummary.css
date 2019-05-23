@@ -1,0 +1,23 @@
+#killed {
+    background-color: rgb(136, 255, 136);
+}
+
+#equivalent {
+    background-color: rgb(255, 253, 133);
+}
+
+#live {
+    background-color: rgb(247, 82, 82);
+}
+
+.panel {
+    float: left;
+}
+
+#panel1 {
+    width: 150px;
+}
+
+#clear {
+    clear: both;
+}

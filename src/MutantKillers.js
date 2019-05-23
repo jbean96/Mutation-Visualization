@@ -3,7 +3,7 @@ import './App.css';
 import './MutantDisplay.css';
 
 function MutantKillers(props) {
-    if (props.killers.length == 0) return null;
+    if (props.killers.length === 0) return null;
 
     const tableRows = props.killers.map(killer => {
         return (

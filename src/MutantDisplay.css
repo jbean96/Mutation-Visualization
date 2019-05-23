@@ -3,11 +3,11 @@
     margin: auto;
 }
 
-#panel1 {
+.panel1 {
     float : left;
 }
 
-#panel2 {
+.panel2 {
     float : right;
 }
 

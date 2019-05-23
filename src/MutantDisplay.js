@@ -6,6 +6,7 @@ import MutantTable from './MutantTable';
 import MutantCode from './MutantCode';
 import SwitchesGroup from './SwitchesGroup';
 import MutantKillers from './MutantKillers';
+import MutantSummary from './MutantSummary';
 import Download from '@axetroy/react-download';
 
 /* Component that handles the displaying of mutants and the logic to navigate
@@ -48,7 +49,7 @@ class MutantDisplay extends React.Component {
         } else if (this.props.mutants.length > 0) {
             return (
                 <div>
-                    <div style={{"text-align": "center"}}>
+                    <div style={{"textAlign": "center"}}>
                         <button>
                             <Download file="mutation_data.json" 
                                 content={JSON.stringify(this.props.mutants)}>
@@ -56,6 +57,7 @@ class MutantDisplay extends React.Component {
                             </Download>
                         </button>
                     </div><br/>
+                    <MutantSummary mutants={this.props.mutants} />
                     <MutantTable mutants={this.props.mutants}
                         mutantClickHandler={this.mutantClickHandler.bind(this)} />
                 </div>

@@ -27,13 +27,13 @@ class MutantCode extends React.Component {
             <div style={{ maxWidth: '100%' }}>
                 <script>hljs.initHighlightingOnLoad();</script>
                 <div id="container">
-                    <div class="panel" id="panel1">
+                    <div class="panel panel1">
                         <h3>Original Code</h3>
                         {this.makeCodePanel(this.props.mutant.unmutated_output, 
                             mutantLines.map(x => x - this.props.mutant.mutated_output_lineno + 1), 
                             this.props.mutant.mutated_output_lineno)}
                     </div>
-                    <div class="panel" id="panel2">
+                    <div class="panel panel2">
                         <h3>Mutant Code</h3>
                         {this.makeCodePanel(this.props.mutant.mutated_output, 
                             mutantLines.map(x => x - this.props.mutant.unmutated_output_lineno + 1), 
