@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Info Test Suite Matches snapshot 1`] = `
+<div>
+  <div
+    id="text"
+  >
+    <p>
+      Welcome to the Mutation-Visualization tool. This project was created by students in CSE P 590 at the University of Washington in Spring 2019 for their class project.
+    </p>
+    <h2>
+      Usage
+    </h2>
+    <p>
+      Start by uploading a .json file in the prescribed format below. The tool will display a table consisting of all the mutants described in the input file and allow you to inspect the mutation and mark them as "equivalent" and/or "productive". The main page will also display overall facts about the mutants including how many have been killed, are live and are equivalent. At any time you can download the file with your changes by clicking the "Save Mutation Data" button.
+    </p>
+  </div>
+  <h2>
+    Data Format
+  </h2>
+  <div
+    id="code"
+  >
+    <pre>
+      <code>
+        [
+    {
+        "mutated_lineno": &lt;int&gt;,            // The line number of the original code that was mutated
+        "mutated_output": &lt;string&gt;,         // Mutant code snippet
+        "productive": &lt;boolean&gt;,            // Indicates whether or not it was productive
+        "mutation_operator": &lt;string&gt;,      // The applied mutation operator
+        "equivalent": &lt;boolean&gt;,            // Indicates whether or not the mutant is equivalent
+        "mutated_output_lineno": &lt;int&gt;,     // The starting line number for the mutated code snippet
+        "unmutated_output": &lt;string&gt;,       // Original code snipped
+        "killers": [                        // Array of the tests that killed the mutant
+            [
+                &lt;string&gt;,                   // Name of failed test
+                &lt;string&gt;                    // Error message/traceback
+            ],
+            ...
+        ],
+        "unmutated_output_lineno": &lt;int&gt;,   // Starting line number for the original code snippet
+        "mutant_name": &lt;string&gt;,            // Unique name for the mutant
+        "killed": &lt;boolean&gt;,                // Indicates whether or not the mutant was killed
+        "mutated_ast_node": &lt;string&gt;        // Name of the mutated AST Node
+    },
+    ...
+]
+      </code>
+    </pre>
+  </div>
+  <br />
+</div>
+`;

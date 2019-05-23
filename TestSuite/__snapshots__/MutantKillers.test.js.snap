@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MutantKillers Test Suite Matches snapshot 1`] = `
+<div>
+  <h4>
+    This mutant was killed by the following tests:
+  </h4>
+  <ul>
+    <li>
+      <strong>
+        test_add_10_2 (sample_test.SampleTest)
+      </strong>
+      <ul>
+        <li>
+          Traceback (most recent call last):
+  File "../../example/sample_test.py", line 9, in test_add_10_2
+    self.assertEqual(11, sample.add10(1))
+AssertionError: 11 != 10
+
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>
+        test_add_10 (sample_test.SampleTest)
+      </strong>
+      <ul>
+        <li>
+          Traceback (most recent call last):
+  File "../../example/sample_test.py", line 6, in test_add_10
+    self.assertEqual(20, sample.add10(10))
+AssertionError: 20 != 100
+
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+`;

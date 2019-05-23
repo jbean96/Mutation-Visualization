@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
+import renderer from 'react-test-renderer';
 // Components
 import MutantKillers from '../src/MutantKillers';
 import { wrap } from 'module';
@@ -21,6 +22,11 @@ describe('MutantKillers Test Suite', () => {
     }
     const wrapper = shallow(<MutantKillers {...props} />);
     const mountWrapper = mount(<MutantKillers {...props} />);
+
+    it('Matches snapshot', () => {
+        const tree = renderer.create(<MutantKillers {...props} />).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 
     it('Component renders without crashing providing proper JSON', () => {
         expect(wrapper.exists()).toBe(true);

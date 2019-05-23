@@ -1,0 +1,932 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MutantCode Test Suite Matches snapshot 1`] = `
+<div
+  style={
+    Object {
+      "maxWidth": "100%",
+    }
+  }
+>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  <div
+    id="container"
+  >
+    <div
+      className="panel"
+      id="panel1"
+    >
+      <h3>
+        Original Code
+      </h3>
+      <pre
+        style={
+          Object {
+            "background": "#f8f8ff",
+            "color": "#000",
+            "display": "block",
+            "overflowX": "auto",
+            "padding": "0.5em",
+          }
+        }
+      >
+        <code
+          style={
+            Object {
+              "float": "left",
+              "paddingRight": "10px",
+            }
+          }
+        >
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            12
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            13
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            14
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            15
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            16
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            17
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            18
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            19
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            20
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            21
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            22
+
+          </span>
+        </code>
+        <code>
+          <span
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+              
+
+            </span>
+          </span>
+          <span
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+              
+            </span>
+            <span
+              className="hljs-function"
+              style={
+                Object {
+                  "color": "#954121",
+                }
+              }
+            >
+              def
+            </span>
+            <span
+              className="hljs-function"
+              style={Object {}}
+            >
+               
+            </span>
+            <span
+              className="hljs-function"
+              style={
+                Object {
+                  "color": "#458",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              triple_me
+            </span>
+            <span
+              className="hljs-function"
+              style={
+                Object {
+                  "color": "#00f",
+                }
+              }
+            >
+              (x)
+            </span>
+            <span
+              className="hljs-function"
+              style={Object {}}
+            >
+              :
+            </span>
+            <span
+              style={Object {}}
+            >
+              
+
+            </span>
+          </span>
+          <span
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+                  
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#954121",
+                }
+              }
+            >
+              return
+            </span>
+            <span
+              style={Object {}}
+            >
+               x * 
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#40a070",
+                }
+              }
+            >
+              3
+            </span>
+            <span
+              style={Object {}}
+            >
+              
+
+            </span>
+          </span>
+          <span
+            style={Object {}}
+          >
+            
+
+          </span>
+          <span
+            style={Object {}}
+          >
+            
+
+          </span>
+          <span
+            className="mutation"
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+              
+            </span>
+            <span
+              className="hljs-function"
+              style={
+                Object {
+                  "color": "#954121",
+                }
+              }
+            >
+              def
+            </span>
+            <span
+              className="hljs-function"
+              style={Object {}}
+            >
+               
+            </span>
+            <span
+              className="hljs-function"
+              style={
+                Object {
+                  "color": "#458",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              weird_boolean
+            </span>
+            <span
+              className="hljs-function"
+              style={
+                Object {
+                  "color": "#00f",
+                }
+              }
+            >
+              (b, x)
+            </span>
+            <span
+              className="hljs-function"
+              style={Object {}}
+            >
+              :
+            </span>
+            <span
+              style={Object {}}
+            >
+              
+
+            </span>
+          </span>
+          <span
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+                  
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#954121",
+                }
+              }
+            >
+              if
+            </span>
+            <span
+              style={Object {}}
+            >
+               b:
+
+            </span>
+          </span>
+          <span
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+                      
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#954121",
+                }
+              }
+            >
+              return
+            </span>
+            <span
+              style={Object {}}
+            >
+               x / 
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#40a070",
+                }
+              }
+            >
+              4
+            </span>
+            <span
+              style={Object {}}
+            >
+               + 
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#40a070",
+                }
+              }
+            >
+              3
+            </span>
+            <span
+              style={Object {}}
+            >
+              
+
+            </span>
+          </span>
+          <span
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+                  
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#954121",
+                }
+              }
+            >
+              elif
+            </span>
+            <span
+              style={Object {}}
+            >
+               x &lt; 
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#40a070",
+                }
+              }
+            >
+              10
+            </span>
+            <span
+              style={Object {}}
+            >
+              :
+
+            </span>
+          </span>
+          <span
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+                      
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#954121",
+                }
+              }
+            >
+              return
+            </span>
+            <span
+              style={Object {}}
+            >
+               -x
+
+            </span>
+          </span>
+          <span
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+                  
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#954121",
+                }
+              }
+            >
+              return
+            </span>
+            <span
+              style={Object {}}
+            >
+               
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#40a070",
+                }
+              }
+            >
+              4
+            </span>
+          </span>
+        </code>
+      </pre>
+    </div>
+    <div
+      className="panel"
+      id="panel2"
+    >
+      <h3>
+        Mutant Code
+      </h3>
+      <pre
+        style={
+          Object {
+            "background": "#f8f8ff",
+            "color": "#000",
+            "display": "block",
+            "overflowX": "auto",
+            "padding": "0.5em",
+          }
+        }
+      >
+        <code
+          style={
+            Object {
+              "float": "left",
+              "paddingRight": "10px",
+            }
+          }
+        >
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            12
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            13
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            14
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            15
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            16
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            17
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            18
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            19
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            20
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            21
+
+          </span>
+          <span
+            className="react-syntax-highlighter-line-number"
+            style={Object {}}
+          >
+            22
+
+          </span>
+        </code>
+        <code>
+          <span
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+              
+
+            </span>
+          </span>
+          <span
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+              
+            </span>
+            <span
+              className="hljs-function"
+              style={
+                Object {
+                  "color": "#954121",
+                }
+              }
+            >
+              def
+            </span>
+            <span
+              className="hljs-function"
+              style={Object {}}
+            >
+               
+            </span>
+            <span
+              className="hljs-function"
+              style={
+                Object {
+                  "color": "#458",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              triple_me
+            </span>
+            <span
+              className="hljs-function"
+              style={
+                Object {
+                  "color": "#00f",
+                }
+              }
+            >
+              (x)
+            </span>
+            <span
+              className="hljs-function"
+              style={Object {}}
+            >
+              :
+            </span>
+            <span
+              style={Object {}}
+            >
+              
+
+            </span>
+          </span>
+          <span
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+                  
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#954121",
+                }
+              }
+            >
+              return
+            </span>
+            <span
+              style={Object {}}
+            >
+               x * 
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#40a070",
+                }
+              }
+            >
+              3
+            </span>
+            <span
+              style={Object {}}
+            >
+              
+
+            </span>
+          </span>
+          <span
+            style={Object {}}
+          >
+            
+
+          </span>
+          <span
+            style={Object {}}
+          >
+            
+
+          </span>
+          <span
+            className="mutation"
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+              
+            </span>
+            <span
+              className="hljs-function"
+              style={
+                Object {
+                  "color": "#954121",
+                }
+              }
+            >
+              def
+            </span>
+            <span
+              className="hljs-function"
+              style={Object {}}
+            >
+               
+            </span>
+            <span
+              className="hljs-function"
+              style={
+                Object {
+                  "color": "#458",
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              weird_boolean
+            </span>
+            <span
+              className="hljs-function"
+              style={
+                Object {
+                  "color": "#00f",
+                }
+              }
+            >
+              (b, x)
+            </span>
+            <span
+              className="hljs-function"
+              style={Object {}}
+            >
+              :
+            </span>
+            <span
+              style={Object {}}
+            >
+              
+
+            </span>
+          </span>
+          <span
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+                  
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#954121",
+                }
+              }
+            >
+              if
+            </span>
+            <span
+              style={Object {}}
+            >
+               b:
+
+            </span>
+          </span>
+          <span
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+                      
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#954121",
+                }
+              }
+            >
+              return
+            </span>
+            <span
+              style={Object {}}
+            >
+               x / 
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#40a070",
+                }
+              }
+            >
+              4
+            </span>
+            <span
+              style={Object {}}
+            >
+               + 
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#40a070",
+                }
+              }
+            >
+              3
+            </span>
+            <span
+              style={Object {}}
+            >
+              
+
+            </span>
+          </span>
+          <span
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+                  
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#954121",
+                }
+              }
+            >
+              elif
+            </span>
+            <span
+              style={Object {}}
+            >
+               x &lt; 
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#40a070",
+                }
+              }
+            >
+              10
+            </span>
+            <span
+              style={Object {}}
+            >
+              :
+
+            </span>
+          </span>
+          <span
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+                      
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#954121",
+                }
+              }
+            >
+              return
+            </span>
+            <span
+              style={Object {}}
+            >
+               x
+
+            </span>
+          </span>
+          <span
+            style={Object {}}
+          >
+            <span
+              style={Object {}}
+            >
+                  
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#954121",
+                }
+              }
+            >
+              return
+            </span>
+            <span
+              style={Object {}}
+            >
+               
+            </span>
+            <span
+              style={
+                Object {
+                  "color": "#40a070",
+                }
+              }
+            >
+              4
+            </span>
+          </span>
+        </code>
+      </pre>
+    </div>
+    <div
+      id="clear"
+    />
+  </div>
+</div>
+`;

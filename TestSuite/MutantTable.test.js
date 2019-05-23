@@ -3,7 +3,6 @@ import { shallow, mount } from 'enzyme';
 
 // Components
 import MutantTable from '../src/MutantTable';
-import { wrap } from 'module';
 
 
 describe('MutantTable Test Suite', () => {
@@ -48,6 +47,11 @@ describe('MutantTable Test Suite', () => {
     }
     const wrapper = shallow(<MutantTable {...props} />);
     const mountWrapper = mount(<MutantTable {...props} />);
+
+    it('Matches snapshot', () => {
+        expect(wrapper.debug()).toMatchSnapshot();
+        expect(mountWrapper.debug()).toMatchSnapshot();
+    });
 
     it('Component renders without crashing providing proper JSON', () => {
         expect(wrapper.exists()).toBe(true);

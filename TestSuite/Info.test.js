@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
+import renderer from 'react-test-renderer';
 
 // Components
 import Info from '../src/Info';
@@ -9,6 +10,11 @@ describe('Info Test Suite', () => {
 
     const wrapper = shallow(<Info />);
     const mountWrapper = mount(<Info />);
+
+    it('Matches snapshot', () => {
+        const tree = renderer.create(<Info />).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 
     it('Component renders without crashing', () => {
         expect(wrapper.exists()).toBe(true);

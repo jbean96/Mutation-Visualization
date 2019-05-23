@@ -568,6 +568,11 @@ describe('Mutant Display Test Suite', () => {
     const wrapper = shallow(<MutantDisplay {...props} />);
     const mountWrapper = mount(<MutantDisplay {...props} />);
 
+    it('Matches snapshot', () => {
+        expect(wrapper.debug()).toMatchSnapshot();
+        expect(mountWrapper.debug()).toMatchSnapshot();
+    });
+
     it('Component renders without crashing', () => {
         expect(wrapper.exists()).toBe(true);
         expect(mountWrapper.exists()).toBe(true);

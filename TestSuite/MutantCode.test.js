@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-
+import renderer from 'react-test-renderer';
 // Components
 import MutantCode from '../src/MutantCode';
 
@@ -24,6 +24,11 @@ describe('MutantCode Test Suite', () => {
     }
     const wrapper = shallow(<MutantCode {...props} />);
     const mountWrapper = mount(<MutantCode {...props} />);
+
+    it('Matches snapshot', () => {
+        const tree = renderer.create(<MutantCode {...props} />).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 
     it('Component renders without crashing providing proper JSON', () => {
         expect(wrapper.exists()).toBe(true);
