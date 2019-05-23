@@ -40,6 +40,7 @@ class App extends React.Component {
     try {
       content = JSON.parse(this.fileReader.result);
     } catch (err) {
+      this.setState({ mutants: [] });
       this.logError(err);
       return;
     }
@@ -63,8 +64,7 @@ class App extends React.Component {
     } else {
       this.logError('No files selected');
     }
-
-    this.setState({ mutants: [] });
+    
     this.setState({ disableUploadButton: true});
   }
 
