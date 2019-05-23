@@ -15,10 +15,12 @@ class App extends React.Component {
     super(props);
     this.state = {
       mutants: [],
-      error: null
+      error: null,
+      disableUploadButton: true,
     };
 
     this.handleUpload = this.handleUpload.bind(this);
+    this.handleInputClick = this.handleInputClick.bind(this);
     this.handleFileRead = this.handleFileRead.bind(this);
 
     this.fileReader = new FileReader();
@@ -43,10 +45,9 @@ class App extends React.Component {
     }
 
     // TODO: Check the object structure and make sure it's an array of mutants?
-
     if (!Array.isArray(content)) {
       this.logError('Top level json object must be an array');
-    } else if (content.length == 0) {
+    } else if (content.length === 0) {
       this.logError('Uploaded array is empty');
     } else {
       this.setState({ mutants: content });
@@ -62,6 +63,12 @@ class App extends React.Component {
     } else {
       this.logError('No files selected');
     }
+
+    this.setState({ disableUploadButton: true});
+  }
+
+  handleInputClick() {
+    this.setState({ disableUploadButton: false});
   }
 
   createErrorMessage() {
@@ -99,8 +106,8 @@ class App extends React.Component {
         <div id="site-header">
         <h1>Mutation Testing Visualization Tool</h1>
           <form onSubmit={this.handleUpload}>
-            <input ref={(ref) => { this.fileInput = ref; }} type='file' />
-            <button>Upload</button>
+            <input onClick={this.handleInputClick} ref={(ref) => { this.fileInput = ref; }} type='file' />
+            <button disabled={this.state.disableUploadButton}>Upload</button>
           </form>
         </div>
         <br/>
