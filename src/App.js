@@ -64,6 +64,7 @@ class App extends React.Component {
       this.logError('No files selected');
     }
 
+    this.setState({ mutants: [] });
     this.setState({ disableUploadButton: true});
   }
 
