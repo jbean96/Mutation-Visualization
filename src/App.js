@@ -46,7 +46,7 @@ class App extends React.Component {
 
     if (!Array.isArray(content)) {
       this.logError('Top level json object must be an array');
-    } else if (content.length == 0) {
+    } else if (content.length === 0) {
       this.logError('Uploaded array is empty');
     } else {
       this.setState({ mutants: content });

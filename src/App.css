@@ -30,6 +30,11 @@
   text-align: center;
 }
 
+.topLevel {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 #error {
   background-color : rgb(255, 221, 221);
   padding : 10px;

@@ -6,6 +6,7 @@ import MutantTable from './MutantTable';
 import MutantCode from './MutantCode';
 import SwitchesGroup from './SwitchesGroup';
 import MutantKillers from './MutantKillers';
+import MutantSummary from './MutantSummary';
 import Download from '@axetroy/react-download';
 
 /* Component that handles the displaying of mutants and the logic to navigate
@@ -35,8 +36,9 @@ class MutantDisplay extends React.Component {
         if (this.state.currentMutant !== null) {
             const mutant_obj = this.props.mutants[this.state.currentMutant];
             return (
-                <div>
-                    <KeyboardBackspace onClick={this.returnToTable.bind(this)}/>
+                <div className="topLevel">
+                    <KeyboardBackspace onClick={this.returnToTable.bind(this)}
+                        onhover={console.log("hello from backspace")} />
                     <br/>
                     <h3>{mutant_obj.mutant_name}</h3>
                     <MutantCode mutant={mutant_obj}/>
@@ -47,15 +49,16 @@ class MutantDisplay extends React.Component {
             );
         } else if (this.props.mutants.length > 0) {
             return (
-                <div>
-                    <div style={{"text-align": "center"}}>
+                <div className="topLevel">
+                    <div style={{"textAlign": "center"}}>
                         <button>
                             <Download file="mutation_data.json" 
                                 content={JSON.stringify(this.props.mutants)}>
                                 Save Mutation Data
                             </Download>
                         </button>
-                    </div><br/>
+                    </div>
+                    <MutantSummary mutants={this.props.mutants} />
                     <MutantTable mutants={this.props.mutants}
                         mutantClickHandler={this.mutantClickHandler.bind(this)} />
                 </div>

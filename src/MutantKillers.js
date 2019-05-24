@@ -3,7 +3,7 @@ import './App.css';
 import './MutantDisplay.css';
 
 function MutantKillers(props) {
-    if (props.killers.length == 0) return null;
+    if (props.killers.length === 0) return null;
 
     const tableRows = props.killers.map(killer => {
         return (
@@ -17,7 +17,7 @@ function MutantKillers(props) {
     });
 
     return (
-        <div>
+        <div className="topLevel">
             <h4>This mutant was killed by the following tests:</h4>
             <ul>
                 {tableRows}

@@ -1,0 +1,29 @@
+#killed {
+    background-color: rgb(136, 255, 136);
+}
+
+#equivalent {
+    background-color: rgb(255, 253, 133);
+}
+
+#live {
+    background-color: rgb(247, 82, 82);
+}
+
+.sumPanel {
+    display: inline-block;
+    margin: 0 auto;
+
+}
+
+#sumPanel1 {
+    width: 300px;
+}
+
+#clear {
+    clear: both;
+}
+
+#summaryHeader {
+    margin-bottom: 5px;
+}
