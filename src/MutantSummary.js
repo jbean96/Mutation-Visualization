@@ -54,6 +54,13 @@ class MutantSummary extends React.Component {
         this.drawPieChart();
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.mutants !== prevProps.mutants) {
+            d3.select("div#pieChart").select("svg").remove();
+            this.drawPieChart();
+        }
+    }
+
     createTableRows(summaryInfo) {
         if (!summaryInfo.hasOwnProperty("killed") || 
             !summaryInfo.hasOwnProperty("equivalent") ||
