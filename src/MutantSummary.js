@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import './MutantSummary.css';
+import styles from './MutantSummary.css';
 import * as d3 from 'd3';
 
 class MutantSummary extends React.Component {
@@ -55,9 +55,9 @@ class MutantSummary extends React.Component {
     }
 
     createTableRows(summaryInfo) {
-        if (!summaryInfo.killed || 
-            !summaryInfo.equivalent ||
-            !summaryInfo.live) {
+        if (!summaryInfo.hasOwnProperty("killed") || 
+            !summaryInfo.hasOwnProperty("equivalent") ||
+            !summaryInfo.hasOwnProperty("live")) {
                 throw "Missing attributes from summaryInfo";
             }
         let items = Object.entries(summaryInfo);
@@ -69,7 +69,7 @@ class MutantSummary extends React.Component {
             let children = [];
             children.push(<td><span id={el[0]}>{el[0]}</span></td>);
             children.push(<td>{el[1]}</td>);
-            children.push(<td>{((el[1] * 100.0) / total).toFixed(1)}</td>);
+            children.push(<td>{`${((el[1] * 100.0) / total).toFixed(1)}%`}</td>);
             
             table.push(<tr>{children}</tr>);
         });
@@ -84,7 +84,7 @@ class MutantSummary extends React.Component {
         return (
             <div className="topLevel">
                 <h2 id="summaryHeader">Summary</h2>
-                <div className="panel" id="panel1">
+                <div className="sumPanel" id="sumPanel1">
                     <table>
                         <thead>
                             <tr>
@@ -98,7 +98,7 @@ class MutantSummary extends React.Component {
                         </tbody>
                     </table>
                 </div>
-                <div className="panel" id="pieChart">
+                <div className="sumPanel" id="pieChart">
                 </div>
                 <div id="clear"></div>
             </div>

@@ -10,11 +10,11 @@
     background-color: rgb(247, 82, 82);
 }
 
-.panel {
+.sumPanel {
     float: left;
 }
 
-#panel1 {
+#sumPanel1 {
     width: 300px;
 }
 

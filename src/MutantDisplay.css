@@ -3,16 +3,16 @@
     margin: auto;
 }
 
-.panel1 {
+#panel1 {
     float : left;
 }
 
-.panel2 {
+#panel2 {
     float : right;
 }
 
 .panel {
-    width : 49.5%;
+    width : 49%;
 }
 
 .mutation {
