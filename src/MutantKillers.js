@@ -17,7 +17,7 @@ function MutantKillers(props) {
     });
 
     return (
-        <div>
+        <div className="topLevel">
             <h4>This mutant was killed by the following tests:</h4>
             <ul>
                 {tableRows}

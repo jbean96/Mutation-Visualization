@@ -24,7 +24,7 @@ class MutantCode extends React.Component {
     render() {
         const mutantLines = [this.props.mutant.mutated_lineno];
         return (
-            <div style={{ maxWidth: '100%' }}>
+            <div style={{ maxWidth: '100%' }} className="topLevel">
                 <script>hljs.initHighlightingOnLoad();</script>
                 <div id="container">
                     <div class="panel panel1">

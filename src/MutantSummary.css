@@ -15,9 +15,13 @@
 }
 
 #panel1 {
-    width: 150px;
+    width: 300px;
 }
 
 #clear {
     clear: both;
+}
+
+#summaryHeader {
+    margin-bottom: 5px;
 }

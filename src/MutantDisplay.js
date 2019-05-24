@@ -36,7 +36,7 @@ class MutantDisplay extends React.Component {
         if (this.state.currentMutant !== null) {
             const mutant_obj = this.props.mutants[this.state.currentMutant];
             return (
-                <div>
+                <div className="topLevel">
                     <KeyboardBackspace onClick={this.returnToTable.bind(this)}/>
                     <br/>
                     <h3>{mutant_obj.mutant_name}</h3>
@@ -48,7 +48,7 @@ class MutantDisplay extends React.Component {
             );
         } else if (this.props.mutants.length > 0) {
             return (
-                <div>
+                <div className="topLevel">
                     <div style={{"textAlign": "center"}}>
                         <button>
                             <Download file="mutation_data.json" 
@@ -56,7 +56,7 @@ class MutantDisplay extends React.Component {
                                 Save Mutation Data
                             </Download>
                         </button>
-                    </div><br/>
+                    </div>
                     <MutantSummary mutants={this.props.mutants} />
                     <MutantTable mutants={this.props.mutants}
                         mutantClickHandler={this.mutantClickHandler.bind(this)} />

@@ -20,7 +20,7 @@ function MutantTable(props) {
     });
 
     return (
-        <div style={{ maxWidth: '100%' }}>
+        <div style={{ maxWidth: '100%' }} className="topLevel">
             <MaterialTable
                 columns={[
                     { title: 'Mutant Name', field: 'mutant_name' },
