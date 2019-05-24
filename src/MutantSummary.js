@@ -24,7 +24,7 @@ class MutantSummary extends React.Component {
         var summaryObj = {};
         summaryObj.killed = this.props.mutants.filter(m => m.killed && !m.equivalent).length;
         summaryObj.equivalent = this.props.mutants.filter(m => m.equivalent).length;
-        summaryObj.live = this.props.mutants.filter(m => !m.killed).length;
+        summaryObj.live = this.props.mutants.filter(m => !m.killed && !m.equivalent).length;
         summaryObj.productive = this.props.mutants.filter(m => m.productive).length;
         return summaryObj;
     }
@@ -74,7 +74,7 @@ class MutantSummary extends React.Component {
         let table = [];
         items.forEach((el) => {
             let children = [];
-            children.push(<td><span id={el[0]}>{el[0]}</span></td>);
+            children.push(<td><span id={el[0]}>{el[0]} mutants</span></td>);
             children.push(<td>{el[1]}</td>);
             children.push(<td>{`${((el[1] * 100.0) / total).toFixed(1)}%`}</td>);
             
@@ -90,7 +90,6 @@ class MutantSummary extends React.Component {
         // TODO: Better way to format the summary numbers? 
         return (
             <div className="topLevel">
-                <h2 id="summaryHeader">Summary</h2>
                 <div className="sumPanel" id="sumPanel1">
                     <table>
                         <thead>

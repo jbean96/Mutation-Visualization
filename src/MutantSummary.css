@@ -11,7 +11,9 @@
 }
 
 .sumPanel {
-    float: left;
+    display: inline-block;
+    margin: 0 auto;
+
 }
 
 #sumPanel1 {
