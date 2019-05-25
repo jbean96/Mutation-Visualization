@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import Clear from '@material-ui/icons/Clear';
 import MutantDisplay from './MutantDisplay.js';
 import UploadFile from './UploadFile.js';
 import Info from './Info.js';
+import Clear from '@material-ui/icons/Clear';
 
 function ErrorMessage(props) {
   return (
@@ -16,15 +16,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       mutants: [],
-      error: null
+      error: null,
     };
-
-    this.handleUpload = this.handleUpload.bind(this);
-    this.handleFileRead = this.handleFileRead.bind(this);
-
-    this.setFileInput = this.setFileInput.bind(this);
-    this.fileReader = new FileReader();
-    this.fileReader.onloadend = this.handleFileRead;
   }
 
   logError(err) {
@@ -35,50 +28,20 @@ class App extends React.Component {
     this.setState({ error: null });
   }
 
-  setFileInput(ref) {
-    this.fileInput = ref;
-  }
-
-  handleFileRead() {
-    var content;
-    try {
-      content = JSON.parse(this.fileReader.result);
-    } catch (err) {
-      this.logError(err);
-      return;
-    }
-
-    // TODO: Check the object structure and make sure it's an array of mutants?
-
-    if (!Array.isArray(content)) {
-      this.logError('Top level json object must be an array');
-    } else if (content.length === 0) {
-      this.logError('Uploaded array is empty');
-    } else {
-      this.setState({ mutants: content });
-      this.clearError();
-    }
-  }
-
-  handleUpload(ev) {
-    ev.preventDefault();
-
-    if (this.fileInput.files.length > 0) {
-      this.fileReader.readAsText(this.fileInput.files[0]);
-    } else {
-      this.logError('No files selected');
-    }
-  }
-
   createErrorMessage() {
     if (this.state.error) {
       return (
         <div>
           <ErrorMessage message={this.state.error.toString()}
-        clearError={this.clearError.bind(this)} />
+            clearError={this.clearError.bind(this)} />
         </div>
       );
     }
+  }
+
+  setMutantsHandler(mutants) {
+    const newMutants = JSON.parse(JSON.stringify(this.state.mutants));
+    this.setState({ mutants: mutants });
   }
 
   updateMutantHandler(index, mutant) {
@@ -103,10 +66,12 @@ class App extends React.Component {
     return (
       <div className='App'>
         <div id="site-header">
-        <h1>Mutation Testing Visualization Tool</h1>
-          <UploadFile handleUpload={this.handleUpload} setFileInput={this.setFileInput} />
+          <h1>Mutation Testing Visualization Tool</h1>
+          <UploadFile setMutantsHandler={this.setMutantsHandler.bind(this)}
+            logError={this.logError.bind(this)}
+            clearError={this.clearError.bind(this)} />
         </div>
-        <br/>
+        <br />
         {this.createErrorMessage()}
         {this.renderBody()}
       </div>
