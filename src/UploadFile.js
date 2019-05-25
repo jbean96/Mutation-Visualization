@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import Info from './Info.js';
+import './UploadFile.css'
 
 class UploadFile extends React.Component {
     constructor(props) {
@@ -49,10 +51,13 @@ class UploadFile extends React.Component {
     render() {
         return (
             <div id="file-upload">
-                <form onSubmit={this.handleUpload}>
-                    <input ref={(ref) => { this.setFileInput(ref); }} type='file' />
-                    <button>Upload</button>
-                </form>
+                <div id="file-upload-form">
+                    <form onSubmit={this.handleUpload}>
+                        <input ref={(ref) => { this.setFileInput(ref); }} type='file' />
+                        <button>Upload</button>
+                    </form>
+                </div>
+                <Info />
             </div>
         );
     }

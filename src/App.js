@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import MutantDisplay from './MutantDisplay.js';
 import UploadFile from './UploadFile.js';
-import Info from './Info.js';
 import Clear from '@material-ui/icons/Clear';
 
 function ErrorMessage(props) {
@@ -57,7 +56,9 @@ class App extends React.Component {
       );
     } else {
       return (
-        <Info />
+        <UploadFile setMutantsHandler={this.setMutantsHandler.bind(this)}
+          logError={this.logError.bind(this)}
+          clearError={this.clearError.bind(this)} />
       );
     }
   }
@@ -69,9 +70,6 @@ class App extends React.Component {
           <h1>Mutation Testing Visualization Tool</h1>
         </div>
         {this.createErrorMessage()}
-        <UploadFile setMutantsHandler={this.setMutantsHandler.bind(this)}
-          logError={this.logError.bind(this)}
-          clearError={this.clearError.bind(this)} />
         {this.renderBody()}
       </div>
     );
