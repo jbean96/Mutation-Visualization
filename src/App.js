@@ -75,7 +75,6 @@ class App extends React.Component {
               <MutantDisplay mutants={this.state.mutants} updateMutantHandler={this.updateMutantHandler.bind(this)} />
             </TabPanel>) : null
         }
-
       </Tabs>
     );
   }

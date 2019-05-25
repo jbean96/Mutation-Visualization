@@ -37,7 +37,7 @@ class MutantDisplay extends React.Component {
             const mutant_obj = this.props.mutants[this.state.currentMutant];
             return (
                 <div className="topLevel">
-                    <KeyboardBackspace onClick={this.returnToTable.bind(this)}
+                    <KeyboardBackspace className="back-button" onClick={this.returnToTable.bind(this)}
                         onhover={console.log("hello from backspace")} />
                     <br/>
                     <h3>{mutant_obj.mutant_name}</h3>
