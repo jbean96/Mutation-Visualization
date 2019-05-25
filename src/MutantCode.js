@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import './MutantDisplay.css';
+import './styles/App.css';
+import './styles/MutantDisplay.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 

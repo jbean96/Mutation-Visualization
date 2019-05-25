@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import styles from './MutantSummary.css';
+import './styles/App.css';
+import './styles/MutantSummary.css';
 import * as d3 from 'd3';
 
 class MutantSummary extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import './MutantDisplay.css';
+import './styles/App.css';
+import './styles/MutantDisplay.css';
 import KeyboardBackspace from '@material-ui/icons/KeyboardBackspace';
 import MutantTable from './MutantTable';
 import MutantCode from './MutantCode';
@@ -50,7 +50,7 @@ class MutantDisplay extends React.Component {
         } else if (this.props.mutants.length > 0) {
             return (
                 <div className="topLevel">
-                    <div style={{"textAlign": "center"}}>
+                    <div id="save-file">
                         <button>
                             <Download file="mutation_data.json" 
                                 content={JSON.stringify(this.props.mutants)}>
@@ -58,7 +58,9 @@ class MutantDisplay extends React.Component {
                             </Download>
                         </button>
                     </div>
-                    <MutantSummary mutants={this.props.mutants} />
+                    <div id="summary">
+                        <MutantSummary mutants={this.props.mutants} />
+                    </div>
                     <MutantTable mutants={this.props.mutants}
                         mutantClickHandler={this.mutantClickHandler.bind(this)} />
                 </div>

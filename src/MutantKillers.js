@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import './MutantDisplay.css';
+import './styles/App.css';
+import './styles/MutantDisplay.css';
 
 function MutantKillers(props) {
     if (props.killers.length === 0) return null;

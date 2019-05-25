@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './styles/App.css';
 import MutantDisplay from './MutantDisplay.js';
 import UploadFile from './UploadFile.js';
 import Clear from '@material-ui/icons/Clear';

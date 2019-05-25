@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import './MutantDisplay.css';
+import './styles/App.css';
+import './styles/MutantDisplay.css';
 import mutation_operators from './assets/fields.js';
 import MaterialTable from 'material-table';
 
