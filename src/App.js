@@ -3,6 +3,8 @@ import './styles/App.css';
 import MutantDisplay from './MutantDisplay.js';
 import UploadFile from './UploadFile.js';
 import Clear from '@material-ui/icons/Clear';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import "react-tabs/style/react-tabs.css";
 
 function ErrorMessage(props) {
   return (
@@ -16,6 +18,7 @@ class App extends React.Component {
     this.state = {
       mutants: [],
       error: null,
+      tabIndex: 0,
     };
   }
 
@@ -41,6 +44,7 @@ class App extends React.Component {
   setMutantsHandler(mutants) {
     const newMutants = JSON.parse(JSON.stringify(this.state.mutants));
     this.setState({ mutants: mutants });
+    this.setState({ tabIndex: 1 })
   }
 
   updateMutantHandler(index, mutant) {
@@ -50,17 +54,30 @@ class App extends React.Component {
   }
 
   renderBody() {
-    if (this.state.mutants.length > 0) {
-      return (
-        <MutantDisplay mutants={this.state.mutants} updateMutantHandler={this.updateMutantHandler.bind(this)} />
-      );
-    } else {
-      return (
-        <UploadFile setMutantsHandler={this.setMutantsHandler.bind(this)}
-          logError={this.logError.bind(this)}
-          clearError={this.clearError.bind(this)} />
-      );
-    }
+    const exploreTabHidden = (this.state.mutants.length) ? "hide" : "show";
+    return (
+      <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
+        <TabList>
+          <Tab>Upload Mutation Data</Tab>
+          {
+            (this.state.mutants.length) ? (<Tab>Explore Mutation Data</Tab>) : null
+          }
+        </TabList>
+
+        <TabPanel>
+          <UploadFile setMutantsHandler={this.setMutantsHandler.bind(this)}
+            logError={this.logError.bind(this)}
+            clearError={this.clearError.bind(this)} />
+        </TabPanel>
+        {
+          (this.state.mutants.length) ?
+            (<TabPanel>
+              <MutantDisplay mutants={this.state.mutants} updateMutantHandler={this.updateMutantHandler.bind(this)} />
+            </TabPanel>) : null
+        }
+
+      </Tabs>
+    );
   }
 
   render() {

@@ -44,3 +44,7 @@
     text-align: center;
     margin:15px;
 }
+
+.back-button {
+    cursor: pointer;
+}
