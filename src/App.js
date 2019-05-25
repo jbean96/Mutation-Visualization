@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Clear from '@material-ui/icons/Clear';
 import MutantDisplay from './MutantDisplay.js';
+import UploadFile from './UploadFile.js';
 import Info from './Info.js';
 
 function ErrorMessage(props) {
@@ -21,6 +22,7 @@ class App extends React.Component {
     this.handleUpload = this.handleUpload.bind(this);
     this.handleFileRead = this.handleFileRead.bind(this);
 
+    this.setFileInput = this.setFileInput.bind(this);
     this.fileReader = new FileReader();
     this.fileReader.onloadend = this.handleFileRead;
   }
@@ -31,6 +33,10 @@ class App extends React.Component {
 
   clearError() {
     this.setState({ error: null });
+  }
+
+  setFileInput(ref) {
+    this.fileInput = ref;
   }
 
   handleFileRead() {
@@ -98,10 +104,7 @@ class App extends React.Component {
       <div className='App'>
         <div id="site-header">
         <h1>Mutation Testing Visualization Tool</h1>
-          <form onSubmit={this.handleUpload}>
-            <input ref={(ref) => { this.fileInput = ref; }} type='file' />
-            <button>Upload</button>
-          </form>
+          <UploadFile handleUpload={this.handleUpload} setFileInput={this.setFileInput} />
         </div>
         <br/>
         {this.createErrorMessage()}
