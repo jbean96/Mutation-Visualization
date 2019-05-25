@@ -26,7 +26,21 @@ class UploadFile extends React.Component {
             return;
         }
 
-        // TODO: Check the object structure and make sure it's an array of mutants?
+        // TODO: Additional error checking
+        console.log(content);
+        content.forEach(element => {
+            // Verify that every mutant that's killed is associated with a non-empty array of killers
+            if (element.killed && (element.killers.length == 0)) {
+                this.props.logError(`mutant ${element.mutant_name} marked as killed but has no killers`);
+            } else if (!element.killed && (element.killers.length > 0)) {
+                this.props.logError(`mutant ${element.mutant_name} marked as unkilled but has killers`);
+            }
+
+            // Verify that any mutant that has been killed is not marked as equivalent
+            if (element.killed && element.equivalent) {
+                this.props.logError(`mutant ${element.mutant_name} marked as killed so cannot be equivalent`);
+            } 
+        });
 
         if (!Array.isArray(content)) {
             this.props.logError('Top level json object must be an array');
