@@ -67,12 +67,11 @@ class App extends React.Component {
       <div className='App'>
         <div id="site-header">
           <h1>Mutation Testing Visualization Tool</h1>
-          <UploadFile setMutantsHandler={this.setMutantsHandler.bind(this)}
-            logError={this.logError.bind(this)}
-            clearError={this.clearError.bind(this)} />
         </div>
-        <br />
         {this.createErrorMessage()}
+        <UploadFile setMutantsHandler={this.setMutantsHandler.bind(this)}
+          logError={this.logError.bind(this)}
+          clearError={this.clearError.bind(this)} />
         {this.renderBody()}
       </div>
     );
