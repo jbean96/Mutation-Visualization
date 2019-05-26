@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import './MutantDisplay.css';
+import './styles/App.css';
+import './styles/MutantDisplay.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
@@ -24,7 +24,7 @@ class MutantCode extends React.Component {
     render() {
         const mutantLines = [this.props.mutant.mutated_lineno];
         return (
-            <div style={{ maxWidth: '100%' }}>
+            <div style={{ maxWidth: '100%' }} className="topLevel">
                 <script>hljs.initHighlightingOnLoad();</script>
                 <div id="container">
                     <div className="panel" id="panel1">

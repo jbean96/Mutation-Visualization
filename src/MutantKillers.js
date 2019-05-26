@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import './MutantDisplay.css';
+import './styles/App.css';
+import './styles/MutantDisplay.css';
 
 function MutantKillers(props) {
     if (props.killers.length === 0) return null;
@@ -17,7 +17,7 @@ function MutantKillers(props) {
     });
 
     return (
-        <div>
+        <div className="topLevel">
             <h4>This mutant was killed by the following tests:</h4>
             <ul>
                 {tableRows}

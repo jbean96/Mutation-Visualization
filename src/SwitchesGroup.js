@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import './MutantDisplay.css';
+import './styles/App.css';
+import './styles/MutantDisplay.css';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -24,31 +24,36 @@ class SwitchesGroup extends React.Component {
 
   };
 
+  createSwitch(checked, onChangeArg, value, label) {
+    return (
+      <FormControlLabel
+        control={
+          <Switch
+            checked={checked}
+            onChange={this.handleChange(onChangeArg)}
+            value={value}
+          />
+        }
+        label={label}
+      />
+    );
+  }
+
   render() {
+    const equivalentSwitch = (!this.props.mutant.killed) ? this.createSwitch(this.state.equivalent,
+      "equivalent",
+      "equivalent",
+      "Equivalent") : null;
+    const productiveSwitch = this.createSwitch(this.state.productive,
+      "productive",
+      "productive",
+      "Productive");
     return (
       <FormControl component="fieldset">
-      <FormLabel component="legend">This mutant is:</FormLabel>
+        <FormLabel component="legend">This mutant is:</FormLabel>
         <FormGroup>
-          <FormControlLabel
-            control={
-              <Switch
-                checked={this.state.equivalent}
-                onChange={this.handleChange('equivalent')}
-                value="equivalent"
-              />
-            }
-            label="Equivalent"
-          />
-          <FormControlLabel
-            control={
-              <Switch
-                checked={this.state.productive}
-                onChange={this.handleChange('productive')}
-                value="productive"
-              />
-            }
-            label="Productive"
-          />
+          {equivalentSwitch}
+          {productiveSwitch}
         </FormGroup>
       </FormControl>
     );
