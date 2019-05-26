@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import './Info.css';
+import './styles/App.css';
+import './styles/Info.css';
 import format from './assets/jsonFormat.js';
 
 const informationText = "Welcome to the Mutation-Visualization tool. This project " +

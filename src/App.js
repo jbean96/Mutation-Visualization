@@ -1,8 +1,10 @@
 import React from 'react';
-import './App.css';
-import Clear from '@material-ui/icons/Clear';
+import './styles/App.css';
 import MutantDisplay from './MutantDisplay.js';
-import Info from './Info.js';
+import UploadFile from './UploadFile.js';
+import Clear from '@material-ui/icons/Clear';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import "react-tabs/style/react-tabs.css";
 
 function ErrorMessage(props) {
   return (
@@ -15,14 +17,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       mutants: [],
-      error: null
+      error: null,
+      tabIndex: 0,
     };
-
-    this.handleUpload = this.handleUpload.bind(this);
-    this.handleFileRead = this.handleFileRead.bind(this);
-
-    this.fileReader = new FileReader();
-    this.fileReader.onloadend = this.handleFileRead;
   }
 
   logError(err) {
@@ -33,46 +30,21 @@ class App extends React.Component {
     this.setState({ error: null });
   }
 
-  handleFileRead() {
-    var content;
-    try {
-      content = JSON.parse(this.fileReader.result);
-    } catch (err) {
-      this.logError(err);
-      return;
-    }
-
-    // TODO: Check the object structure and make sure it's an array of mutants?
-
-    if (!Array.isArray(content)) {
-      this.logError('Top level json object must be an array');
-    } else if (content.length === 0) {
-      this.logError('Uploaded array is empty');
-    } else {
-      this.setState({ mutants: content });
-      this.clearError();
-    }
-  }
-
-  handleUpload(ev) {
-    ev.preventDefault();
-
-    if (this.fileInput.files.length > 0) {
-      this.fileReader.readAsText(this.fileInput.files[0]);
-    } else {
-      this.logError('No files selected');
-    }
-  }
-
   createErrorMessage() {
     if (this.state.error) {
       return (
         <div>
           <ErrorMessage message={this.state.error.toString()}
-        clearError={this.clearError.bind(this)} />
+            clearError={this.clearError.bind(this)} />
         </div>
       );
     }
+  }
+
+  setMutantsHandler(mutants) {
+    const newMutants = JSON.parse(JSON.stringify(this.state.mutants));
+    this.setState({ mutants: mutants });
+    this.setState({ tabIndex: 1 })
   }
 
   updateMutantHandler(index, mutant) {
@@ -82,28 +54,37 @@ class App extends React.Component {
   }
 
   renderBody() {
-    if (this.state.mutants.length > 0) {
-      return (
-        <MutantDisplay mutants={this.state.mutants} updateMutantHandler={this.updateMutantHandler.bind(this)} />
-      );
-    } else {
-      return (
-        <Info />
-      );
-    }
+    const exploreTabHidden = (this.state.mutants.length) ? "hide" : "show";
+    return (
+      <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
+        <TabList>
+          <Tab>Upload Mutation Data</Tab>
+          {
+            (this.state.mutants.length) ? (<Tab>Explore Mutation Data</Tab>) : null
+          }
+        </TabList>
+
+        <TabPanel>
+          <UploadFile setMutantsHandler={this.setMutantsHandler.bind(this)}
+            logError={this.logError.bind(this)}
+            clearError={this.clearError.bind(this)} />
+        </TabPanel>
+        {
+          (this.state.mutants.length) ?
+            (<TabPanel>
+              <MutantDisplay mutants={this.state.mutants} updateMutantHandler={this.updateMutantHandler.bind(this)} />
+            </TabPanel>) : null
+        }
+      </Tabs>
+    );
   }
 
   render() {
     return (
       <div className='App'>
         <div id="site-header">
-        <h1>Mutation Testing Visualization Tool</h1>
-          <form onSubmit={this.handleUpload}>
-            <input ref={(ref) => { this.fileInput = ref; }} type='file' />
-            <button>Upload</button>
-          </form>
+          <h1>Mutation Testing Visualization Tool</h1>
         </div>
-        <br/>
         {this.createErrorMessage()}
         {this.renderBody()}
       </div>

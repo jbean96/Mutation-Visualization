@@ -35,3 +35,16 @@
 .mutantName:hover {
     text-decoration: underline;
 }
+
+#save-file {
+    text-align: center;
+}
+
+#summary {
+    text-align: center;
+    margin:15px;
+}
+
+.back-button {
+    cursor: pointer;
+}

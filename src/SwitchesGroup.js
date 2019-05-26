@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import './MutantDisplay.css';
+import './styles/App.css';
+import './styles/MutantDisplay.css';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
