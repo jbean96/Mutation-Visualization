@@ -54,7 +54,6 @@ class App extends React.Component {
   }
 
   renderBody() {
-    const exploreTabHidden = (this.state.mutants.length) ? "hide" : "show";
     return (
       <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex })}>
         <TabList>
