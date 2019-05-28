@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1559029944009" clover="3.2.0">
-  <project timestamp="1559029944010" name="All files">
+<coverage generated="1559030065635" clover="3.2.0">
+  <project timestamp="1559030065635" name="All files">
     <metrics statements="185" coveredstatements="135" conditionals="89" coveredconditionals="52" methods="68" coveredmethods="46" elements="342" coveredelements="233" complexity="0" loc="185" ncloc="185" packages="1" files="11" classes="11"/>
     <file name="App.js" path="/Users/AyazLatif/git/Mutation-Visualization/src/App.js">
       <metrics statements="17" coveredstatements="15" conditionals="8" coveredconditionals="8" methods="10" coveredmethods="8"/>
