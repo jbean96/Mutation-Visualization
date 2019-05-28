@@ -2,10 +2,10 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 
 // Components
-import MutantTable from '../src/MutantTable';
+import MutantSummary from '../src/MutantSummary';
 
 
-describe('MutantTable Test Suite', () => {
+describe('MutantSummary Test Suite', () => {
     const props = {
         mutants: [
             {
@@ -45,29 +45,11 @@ describe('MutantTable Test Suite', () => {
             }
         ]
     }
-    const wrapper = shallow(<MutantTable {...props} />);
-    const mountWrapper = mount(<MutantTable {...props} />);
 
-    it('Matches snapshot', () => {
-        expect(wrapper.debug()).toMatchSnapshot();
-        expect(mountWrapper.debug()).toMatchSnapshot();
-    });
-
-    it('Component renders without crashing providing proper JSON', () => {
+    it('renders page correctly', () => {
+        const wrapper = shallow(<MutantSummary {...props} />)
         expect(wrapper.exists()).toBe(true);
-        expect(mountWrapper.exists()).toBe(true);
     });
 
-    it('Displays table of mutants correctly', () => {
-        expect(wrapper.find('div')).toHaveLength(1);
-        expect(wrapper.find('WithStyles(Component)')).toHaveLength(1);
-    });
-
-    it('Returns null if no mutants', () => {
-        const emptyProps = {
-            mutants: []
-        };
-        expect(MutantTable(emptyProps)).toBe(null);
-    });
 
 });

@@ -70,7 +70,7 @@ class UploadFile extends React.Component {
                     this.props.logError(`mutant ${i} does not follow JSON format`);
                     return;
                 }
-                
+
                 // Verify that every mutant that's killed is associated with a non-empty array of killers
                 if (element.killed && (element.killers.length == 0)) {
                     this.props.logError(`mutant ${i} marked as killed but has no killers`);
