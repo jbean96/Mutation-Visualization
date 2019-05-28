@@ -60,3 +60,59 @@ it('createErrorMessage returns nothing if there is no error set', () => {
     let result = x.createErrorMessage();
     expect(result).toBe(undefined);
 });
+
+it('setMutantHandler creates deep copy of provided new mutants and assigns it to state', () => {
+    let mutants = [{
+        mutated_lineno: 17
+    }]
+
+    let x = new App();
+    x.state.update = []
+    x.setState = function (s) {
+        x.state.update.push(s)
+    }
+    x.setMutantsHandler(mutants);
+    mutants[0].mutated_lineno = 20;
+    expect(x.state.update[0].mutants[0].mutated_lineno).toBe(17);
+    expect(x.state.update[1].tabIndex).toBe(1);
+});
+
+it('updateMutantHandler works correctly', () => {
+    let mutants = [{
+        mutated_lineno: 17
+    }, { mutated_lineno: 20 }]
+
+    let mutant = { mutated_lineno: 100 }
+
+    let x = new App();
+    x.state.mutants = mutants;
+    x.state.update = []
+    x.setState = function (s) {
+        x.state.mutants = s.mutants;
+    }
+    x.updateMutantHandler(1, mutant);
+    expect(x.state.mutants[0].mutated_lineno).toBe(17);
+    expect(x.state.mutants[1].mutated_lineno).toBe(100);
+});
+
+it('renders body correctly when there are mutants', () => {
+    let x = new App();
+    x.state.mutants = [{
+        mutated_lineno: 17
+    }, { mutated_lineno: 20 }];
+    x.state.tabIndex = 1;
+    let result = x.renderBody();
+    expect(result.props.children.length).toBe(3);
+    expect(result.type).toBeDefined();
+    expect(result.props.children[2].props.children).toBeDefined();
+});
+
+it('renders body correctly when there are no mutants', () => {
+    let x = new App();
+    x.state.mutants = [];
+    x.state.tabIndex = 1;
+    let result = x.renderBody();
+    expect(result.props.children[2]).toBe(null);
+});
+
+

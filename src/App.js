@@ -42,8 +42,8 @@ class App extends React.Component {
   }
 
   setMutantsHandler(mutants) {
-    const newMutants = JSON.parse(JSON.stringify(this.state.mutants));
-    this.setState({ mutants: mutants });
+    const newMutants = JSON.parse(JSON.stringify(mutants));
+    this.setState({ mutants: newMutants });
     this.setState({ tabIndex: 1 })
   }
 

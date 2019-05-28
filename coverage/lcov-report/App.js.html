@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">52.94% </span>
+        <span class="strong">88.24% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/17</span>
+        <span class='fraction'>15/17</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">62.5% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>5/8</span>
+        <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60% </span>
+        <span class="strong">80% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>6/10</span>
+        <span class='fraction'>8/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">52.94% </span>
+        <span class="strong">88.24% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/17</span>
+        <span class='fraction'>15/17</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -156,8 +156,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -184,20 +184,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -277,26 +277,26 @@ class App extends React.Component {
     }
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  se</span>tMutantsHandler(mutants) {
-    const newMutants = <span class="cstat-no" title="statement not covered" >JSON.parse(JSON.stringify(this.state.mutants));</span>
-<span class="cstat-no" title="statement not covered" >    this.setState({ mutants: mutants });</span>
-<span class="cstat-no" title="statement not covered" >    this.setState({ tabIndex: 1 })</span>
+  setMutantsHandler(mutants) {
+    const newMutants = JSON.parse(JSON.stringify(mutants));
+    this.setState({ mutants: newMutants });
+    this.setState({ tabIndex: 1 })
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  up</span>dateMutantHandler(index, mutant) {
-    let newMutants = <span class="cstat-no" title="statement not covered" >JSON.parse(JSON.stringify(this.state.mutants));</span>
-<span class="cstat-no" title="statement not covered" >    newMutants[index] = mutant;</span>
-<span class="cstat-no" title="statement not covered" >    this.setState({ mutants: newMutants });</span>
+  updateMutantHandler(index, mutant) {
+    let newMutants = JSON.parse(JSON.stringify(this.state.mutants));
+    newMutants[index] = mutant;
+    this.setState({ mutants: newMutants });
   }
 &nbsp;
   renderBody() {
-    const exploreTabHidden = (this.state.mutants.length) ? <span class="branch-0 cbranch-no" title="branch not covered" >"hide" </span>: "show";
+    const exploreTabHidden = (this.state.mutants.length) ? "hide" : "show";
     return (
       &lt;Tabs selectedIndex={this.state.tabIndex} onSelect={<span class="fstat-no" title="function not covered" >ta</span>bIndex =&gt; <span class="cstat-no" title="statement not covered" >this.setState({ tabIndex })}</span>&gt;
         &lt;TabList&gt;
           &lt;Tab&gt;Upload Mutation Data&lt;/Tab&gt;
           {
-            (this.state.mutants.length) ? (<span class="branch-0 cbranch-no" title="branch not covered" >&lt;Tab&gt;Explore Mutation Data&lt;/Tab&gt;)</span> : null
+            (this.state.mutants.length) ? (&lt;Tab&gt;Explore Mutation Data&lt;/Tab&gt;) : null
           }
         &lt;/TabList&gt;
 &nbsp;
@@ -307,7 +307,7 @@ class App extends React.Component {
         &lt;/TabPanel&gt;
         {
           (this.state.mutants.length) ?
-            (<span class="branch-0 cbranch-no" title="branch not covered" >&lt;TabPanel&gt;</span>
+            (&lt;TabPanel&gt;
               &lt;MutantDisplay mutants={this.state.mutants} updateMutantHandler={this.updateMutantHandler.bind(this)} /&gt;
             &lt;/TabPanel&gt;) : null
         }
@@ -334,7 +334,7 @@ export default App;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 27 2019 20:13:18 GMT-0700 (PDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 28 2019 00:52:23 GMT-0700 (PDT)
 </div>
 </div>
 <script src="prettify.js"></script>

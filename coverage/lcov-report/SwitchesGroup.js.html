@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/12</span>
+        <span class='fraction'>12/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/5</span>
+        <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/11</span>
+        <span class='fraction'>11/11</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -119,29 +119,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -150,15 +144,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -180,24 +180,24 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 &nbsp;
 class SwitchesGroup extends React.Component {
-<span class="fstat-no" title="function not covered" >  co</span>nstructor(props) {
-<span class="cstat-no" title="statement not covered" >      super(props);</span>
-<span class="cstat-no" title="statement not covered" >      this.state = {</span>
-          productive: this.props.mutant.productive,
-          equivalent: this.props.mutant.equivalent,
-      };
+  constructor(props) {
+    super(props);
+    this.state = {
+      productive: this.props.mutant.productive,
+      equivalent: this.props.mutant.equivalent,
+    };
   }
 &nbsp;
-  handleChange = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >na</span>me =&gt; <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >ev</span>ent =&gt; {</span></span>
-<span class="cstat-no" title="statement not covered" >    this.setState({ [name]: event.target.checked });</span>
-    let newMutant = <span class="cstat-no" title="statement not covered" >JSON.parse(JSON.stringify(this.props.mutant));</span>
-<span class="cstat-no" title="statement not covered" >    newMutant[name] = event.target.checked;</span>
-<span class="cstat-no" title="statement not covered" >    this.props.updateSwitchHandler(newMutant);</span>
+  handleChange = name =&gt; event =&gt; {
+    this.setState({ [name]: event.target.checked });
+    let newMutant = JSON.parse(JSON.stringify(this.props.mutant));
+    newMutant[name] = event.target.checked;
+    this.props.updateSwitchHandler(newMutant);
 &nbsp;
   };
 &nbsp;
-<span class="fstat-no" title="function not covered" >  cr</span>eateSwitch(checked, onChangeArg, value, label) {
-<span class="cstat-no" title="statement not covered" >    return (</span>
+  createSwitch(checked, onChangeArg, value, label) {
+    return (
       &lt;FormControlLabel
         control={
           &lt;Switch
@@ -211,16 +211,16 @@ class SwitchesGroup extends React.Component {
     );
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  re</span>nder() {
-    const equivalentSwitch = <span class="cstat-no" title="statement not covered" >(!this.props.mutant.killed) ? this.createSwitch(this.state.equivalent,</span>
+  render() {
+    const equivalentSwitch = (!this.props.mutant.killed) ? this.createSwitch(this.state.equivalent,
       "equivalent",
       "equivalent",
       "Equivalent") : null;
-    const productiveSwitch = <span class="cstat-no" title="statement not covered" >this.createSwitch(this.state.productive,</span>
+    const productiveSwitch = this.createSwitch(this.state.productive,
       "productive",
       "productive",
       "Productive");
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
       &lt;FormControl component="fieldset"&gt;
         &lt;FormLabel component="legend"&gt;This mutant is:&lt;/FormLabel&gt;
         &lt;FormGroup&gt;
@@ -238,7 +238,7 @@ export default SwitchesGroup;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon May 27 2019 20:13:18 GMT-0700 (PDT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 28 2019 00:52:23 GMT-0700 (PDT)
 </div>
 </div>
 <script src="prettify.js"></script>

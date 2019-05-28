@@ -252,7 +252,6 @@ describe("handFileRead() tests", () => {
         expect(error).toBe(1);
         expect(returnVal).toBe(`mutant 0 does not follow JSON format`)
     });
-    // DONE UP TO HERE
 
     it("Logs error when provided JSON is missing the unmutated_output field", () => {
         let error = 0;
