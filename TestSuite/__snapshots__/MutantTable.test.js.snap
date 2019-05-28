@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MutantTable Test Suite Matches snapshot 1`] = `
-"<div style={{...}}>
+"<div style={{...}} className=\\"topLevel\\">
   <WithStyles(Component) columns={{...}} data={{...}} title=\\"Mutants Found\\" />
 </div>"
 `;
 
 exports[`MutantTable Test Suite Matches snapshot 2`] = `
 "<MutantTable mutants={{...}}>
-  <div style={{...}}>
+  <div style={{...}} className=\\"topLevel\\">
     <WithStyles(Component) columns={{...}} data={{...}} title=\\"Mutants Found\\">
       <Component columns={{...}} data={{...}} title=\\"Mutants Found\\" theme={{...}} classes={{...}}>
         <MaterialTable columns={{...}} data={{...}} title=\\"Mutants Found\\" theme={{...}} classes={{...}} actions={{...}} components={{...}} icons={{...}} isLoading={false} options={{...}} localization={{...}}>

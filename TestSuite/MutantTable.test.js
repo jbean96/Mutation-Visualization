@@ -63,4 +63,11 @@ describe('MutantTable Test Suite', () => {
         expect(wrapper.find('WithStyles(Component)')).toHaveLength(1);
     });
 
+    it('Returns null if no mutants', () => {
+        const emptyProps = {
+            mutants: []
+        };
+        expect(MutantTable(emptyProps)).toBe(null);
+    });
+
 });

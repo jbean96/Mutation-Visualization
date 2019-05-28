@@ -40,4 +40,12 @@ describe('MutantKillers Test Suite', () => {
         expect(wrapper.find('h4')).toHaveLength(1);
     });
 
+    it('Returns null if no killers', () => {
+        const emptyProps = {
+            killers: []
+        }
+        let result = MutantKillers(emptyProps)
+        expect(result).toBe(null);
+    });
+
 });
