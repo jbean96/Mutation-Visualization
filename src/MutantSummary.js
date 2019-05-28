@@ -29,9 +29,30 @@ class MutantSummary extends React.Component {
         return summaryObj;
     }
 
+    drawToolTip(x, y, node, total) {
+        d3.select("#tooltip")
+            .style("left", `${x}px`)
+            .style("top", `${y}px`)
+            .style("background-color", this.colors[node.data[0]])
+            .html(`${node.data[0]}<br/>${(node.data[1] * 100.0 / total).toFixed(1)}%`)
+            .style("display", "inline");
+    }
+
+    hideToolTip() {
+        d3.select("#tooltip")
+            .style("display", "none");
+    }
+
     drawPieChart() {
-        const svg = d3.select("div#pieChart").append("svg").attr("width", this.pieRadius * 2 + this.pieMargin).attr("height", this.pieRadius * 2 + this.pieMargin);
-        const g = svg.append("g").attr("transform", `translate(${this.pieRadius + this.pieMargin / 2}, ${this.pieRadius + this.pieMargin / 2})`);
+        const svg = d3.select("div#pieChart").append("svg")
+                        .attr("width", this.pieRadius * 2 + this.pieMargin)
+                        .attr("height", this.pieRadius * 2 + this.pieMargin);
+
+        d3.select("div#pieChart").append("div")
+            .attr("id", "tooltip");
+
+        const g = svg.append("g")
+                    .attr("transform", `translate(${this.pieRadius + this.pieMargin / 2}, ${this.pieRadius + this.pieMargin / 2})`);
 
         const pie = d3.pie().value(d => d[1]);
         const arc = d3.arc().innerRadius(0).outerRadius(this.pieRadius);
@@ -41,19 +62,30 @@ class MutantSummary extends React.Component {
         let total = this.props.mutants.length;
         delete summaryInfo.productive;
 
-        const arcs = g.selectAll("arc").data(pie(Object.entries(summaryInfo))).enter().append("g").attr("class", "arc").on("mouseover", (d, i, nodes) => {
-            d3.select(nodes[i]).select("path").transition().duration(200).attr("d", arcHover);
-        }).on("mouseout", (d, i, nodes) => {
-            d3.select(nodes[i]).select("path").transition().duration(200).attr("d", arc);
-        });
+        const arcs = g.selectAll("arc").data(pie(Object.entries(summaryInfo)))
+                        .enter().append("g")
+                        .attr("class", "arc")
+                        .on("mouseover", (d, i, nodes) => {
+                            d3.select(nodes[i]).select("path").transition().duration(200).attr("d", arcHover);
+                        }).on("mousemove", (d, i, nodes) => {
+                            this.drawToolTip(d3.event.pageX, d3.event.pageY, d, total);
+                        }).on("mouseout", (d, i, nodes) => {
+                            d3.select(nodes[i]).select("path").transition().duration(200).attr("d", arc);
+                            this.hideToolTip();
+                        });
 
-        arcs.append("path").attr("fill", (d) => this.colors[d.data[0]]).attr("d", arc);
+        arcs.append("path")
+            .attr("fill", (d) => this.colors[d.data[0]])
+            .attr("d", arc);
     }
 
+    // Draws the pie chart after this component has been added to
+    // the DOM
     componentDidMount() {
         this.drawPieChart();
     }
 
+    // Updates the pie chart after some of the mutants have been modified
     componentDidUpdate(prevProps) {
         if (this.props.mutants !== prevProps.mutants) {
             d3.select("div#pieChart").select("svg").remove();
