@@ -9,11 +9,11 @@ import Switch from '@material-ui/core/Switch';
 
 class SwitchesGroup extends React.Component {
   constructor(props) {
-      super(props);
-      this.state = {
-          productive: this.props.mutant.productive,
-          equivalent: this.props.mutant.equivalent,
-      };
+    super(props);
+    this.state = {
+      productive: this.props.mutant.productive,
+      equivalent: this.props.mutant.equivalent,
+    };
   }
 
   handleChange = name => event => {

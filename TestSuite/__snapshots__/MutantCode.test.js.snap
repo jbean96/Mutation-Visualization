@@ -2,6 +2,7 @@
 
 exports[`MutantCode Test Suite Matches snapshot 1`] = `
 <div
+  className="topLevel"
   style={
     Object {
       "maxWidth": "100%",

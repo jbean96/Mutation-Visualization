@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MutantKillers Test Suite Matches snapshot 1`] = `
-<div>
+<div
+  className="topLevel"
+>
   <h4>
     This mutant was killed by the following tests:
   </h4>
