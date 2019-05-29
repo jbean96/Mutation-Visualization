@@ -1,4 +1,4 @@
-# Mutation-Visualization
+# MutViz (Mutation-Visualization)
 
 Project for CSEP 590 Spring 2019 at the University of Washington
 
