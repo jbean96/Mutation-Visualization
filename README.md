@@ -1,107 +1,15 @@
 # Mutation-Visualization
 
-Project for CSE P 590 in Spring 2019 at the University of Washington
+Project for CSEP 590 Spring 2019 at the University of Washington
 
-- Rajneil Rana
-- Sai Nimmagadda
-- Ayaz Latif
 - Josh Bean
+- Ayaz Latif
+- Sai Nimmagadda
+- Rajneil Rana
 
-## JSON Structure
+## Documentation
 
-```
-[
-    {
-        "mutated_lineno": <int>,            // The line number of the original code that was mutated
-        "mutated_output": <string>,         // Mutant code snippet
-        "productive": <boolean>,            // Indicates whether or not it was productive
-        "mutation_operator": <string>,      // The applied mutation operator
-        "equivalent": <boolean>,            // Indicates whether or not the mutant is equivalent
-        "mutated_output_lineno": <int>,     // The starting line number for the mutated code snippet
-        "unmutated_output": <string>,       // Original code snipped
-        "killers": [                        // Array of the tests that killed the mutant
-            [
-                <string>,                   // Name of failed test
-                <string>                    // Error message/traceback
-            ],
-            ...
-        ],
-        "unmutated_output_lineno": <int>,   // Starting line number for the original code snippet
-        "mutant_name": <string>,            // Unique name for the mutant
-        "killed": <boolean>,                // Indicates whether or not the mutant was killed
-        "mutated_ast_node": <string>        // Name of the mutated AST Node
-    },
-    ...
-]
-```
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm install`
-
-This will install any necessary modules for the project and put them into the `node_modules` directory.
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [User Doc](docs/user.md)<br>
+- [Developer Doc](docs/developer.md)<br>
+- [Evaluation Doc](docs/evaluation.md)<br>
+- [Project Brochure](docs/brochure.pdf)
