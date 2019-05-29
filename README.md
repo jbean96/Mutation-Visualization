@@ -1,6 +1,7 @@
 # MutViz (Mutation-Visualization)
 
 Project for CSEP 590 Spring 2019 at the University of Washington
+https://jbean96.github.io/Mutation-Visualization/
 
 - Josh Bean
 - Ayaz Latif
