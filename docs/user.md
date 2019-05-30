@@ -6,6 +6,7 @@ MutViz is a web-based interface that can be used to visualize the output of an e
 
 ## JSON Structure
 
+Sample input JSON files can be found [here](../example_json).
 ```
 [
     {
