@@ -2,10 +2,11 @@
 
 ## What is MutViz?
 
-MutViz is a web-based interface that can be used to visualize the output of an existing mutation analyzer. The interface accepts a formatted JSON file (seen below) with metadata about each mutant. The main page displays a table consisting of all the mutants described in the input file and allows users to inspect each mutation, marking them as “equivalent” and/or “productive.” The interface also displays an overall summary about the mutants that illustrates how many are live, equivalent, killed, and productive. At any time, the updated input file can be downloaded.
+MutViz is a web-based interface that can be used to visualize the output of an existing mutation analyzer. The interface accepts a formatted [JSON file](#json-structure) with metadata about each mutant. The main page displays a table consisting of all the mutants described in the input file and allows users to inspect each mutation, marking them as “equivalent” and/or “productive.” The interface also displays an overall summary about the mutants that illustrates how many are live, equivalent, killed, and productive. At any time, the updated input file can be downloaded.
 
 ## JSON Structure
 
+Sample input JSON files can be found [here](../example_json).
 ```
 [
     {
