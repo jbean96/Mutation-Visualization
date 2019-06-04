@@ -1,7 +1,6 @@
 import React from 'react';
 import './styles/App.css';
 import './styles/MutantDisplay.css';
-import mutation_operators from './assets/fields.js';
 import MaterialTable from 'material-table';
 
 /* Functional component to display high level data about all of the mutants */
@@ -12,7 +11,7 @@ function MutantTable(props) {
 
         return {
             mutant_name: <span className="mutantName" onClick={() => props.mutantClickHandler(index)}>{mutant.mutant_name}</span>,
-            mutation_operator: mutation_operators[mutant.mutation_operator].full_name,
+            mutation_operator: mutant.mutation_operator,
             killed: String(mutant.killed),
             equivalent: String(mutant.equivalent),
             productive: String(mutant.productive)
